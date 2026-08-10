@@ -1,0 +1,13 @@
+{
+  "event.register.title": "Save your family's place",
+  "event.register.guardianName": "Parent or guardian name",
+  "event.register.email": "Email",
+  "event.register.childFirstName": "Child's first name",
+  "event.register.childAge": "Child's age",
+  "event.register.language": "Preferred language",
+  "event.register.consent": "I am the parent or legal guardian and I consent to I AM 4 Kids contacting me about this session. My child does not create an account and will not be contacted directly.",
+  "event.register.submit": "Reserve our place",
+  "event.register.error": "Please complete every field and confirm guardian consent.",
+  "event.confirm.title": "You're in.",
+  "event.confirm.body": "A confirmation is on its way with your link and a calendar file. We'll remind you 24 hours and 1 hour before — in your time zone."
+}

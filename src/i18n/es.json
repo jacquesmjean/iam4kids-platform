@@ -1,0 +1,13 @@
+{
+  "event.register.title": "Reserva el lugar de tu familia",
+  "event.register.guardianName": "Nombre del padre, madre o tutor",
+  "event.register.email": "Correo electrónico",
+  "event.register.childFirstName": "Nombre del niño o niña",
+  "event.register.childAge": "Edad",
+  "event.register.language": "Idioma preferido",
+  "event.register.consent": "Soy el padre, madre o tutor legal y doy mi consentimiento para que I AM 4 Kids me contacte sobre esta sesión. Mi hijo o hija no crea una cuenta y no será contactado directamente.",
+  "event.register.submit": "Reservar nuestro lugar",
+  "event.register.error": "Por favor completa todos los campos y confirma el consentimiento.",
+  "event.confirm.title": "Ya estás dentro.",
+  "event.confirm.body": "Te enviaremos la confirmación con tu enlace y un archivo de calendario. Te recordaremos 24 horas y 1 hora antes — en tu zona horaria."
+}
