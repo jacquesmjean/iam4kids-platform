@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --night: #0b1b3a;
+  --ink: #12224a;
+  --blue: #2563eb;
+  --gold: #f5a524;
+  --cream: #fdf9f2;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background: var(--cream);
+  color: var(--night);
+}
