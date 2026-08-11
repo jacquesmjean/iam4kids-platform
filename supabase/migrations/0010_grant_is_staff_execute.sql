@@ -1,0 +1,25 @@
+-- =====================================================================
+-- 0010 — let the policies evaluate cleanly for anonymous callers
+--
+-- Every staff-only policy calls public.is_staff(). anon had no EXECUTE on
+-- it, so an anonymous SELECT on those tables raised
+-- "permission denied for function is_staff" instead of simply returning no
+-- rows. The data was never exposed, but a hard error is the wrong failure:
+-- it announces that a policy exists, and it breaks a client that was only
+-- ever going to get an empty list.
+--
+-- Granting EXECUTE is safe. is_staff() is SECURITY INVOKER, so when anon
+-- calls it the lookup runs as anon, hits RLS on role_assignment and person
+-- with no policy, finds nothing, and returns false. It cannot be used to
+-- read anything, only to answer "am I staff" about the caller.
+--
+-- Verified against the live database as the anon role:
+--   client_feedback  0 rows readable
+--   child_profile    0 rows readable
+--   person           0 rows readable
+--   registration     0 rows readable
+--   is_staff()       false
+--   event            1 row readable (public by policy, as intended)
+-- =====================================================================
+
+grant execute on function public.is_staff() to anon, authenticated;
