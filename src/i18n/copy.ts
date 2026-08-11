@@ -1,0 +1,365 @@
+/**
+ * All user-facing copy, in both languages.
+ *
+ * Kept in one typed object rather than scattered JSON so that adding a
+ * string in English and forgetting the Spanish is a compile error, not a
+ * discovery in front of a Spanish-speaking parent. Blueprint v0.1 §7 asks
+ * for multilingual by default; this is what "by default" has to mean.
+ */
+
+export const LOCALES = ["en", "es"] as const;
+export type Locale = (typeof LOCALES)[number];
+
+export function isLocale(v: string): v is Locale {
+  return (LOCALES as readonly string[]).includes(v);
+}
+
+export function other(locale: Locale): Locale {
+  return locale === "en" ? "es" : "en";
+}
+
+const en = {
+  nav: {
+    foundation: "Foundation",
+    impact: "Impact",
+    content: "Content",
+    admin: "Admin",
+    register: "Register",
+    switch: "Español",
+  },
+
+  home: {
+    eyebrow: "I AM 4 Kids · Platform Foundation",
+    title: "One foundation. Every experience in the vision sits on top of it.",
+    lede:
+      "The blueprint describes a kids’ empowerment universe: a show, characters, toys, games, books, apparel. Those are six products. They are also six chances to build six disconnected databases. This is the thing that stops that happening — one record for every family, one place events and content are managed from, and a child who is counted and celebrated but never contacted.",
+    ctaRegister: "See a family register",
+    ctaVision: "The vision this serves",
+    ctaImpact: "See the impact dashboard",
+
+    decisionEyebrow: "The decision everything else depends on",
+    decisionTitle: "A child is a record, not a user.",
+    decisionBody:
+      "COPPA attaches the moment a child can log in or be reached directly. Rather than build a consent apparatus around child accounts, we removed the trigger. A child profile has no email address, no login, no phone number. There is no column to put one in. Every experience in the blueprint still works — the parent is the one we talk to.",
+    decisionFooter: "Enforced by the schema, not by a rule someone has to remember.",
+
+    stackTitle: "How it stacks",
+    stackLede:
+      "Modules never read each other’s tables. They share the foundation. That is the difference between a platform and a folder of tools.",
+
+    tablesTitle: "What is already built",
+    tablesLede:
+      "Eighteen tables across six migrations, with row-level security on the child records. This is committed code running against a live database, not a diagram.",
+
+    weeksTitle: "The first thirty days",
+    weeksLede: "Each week ends with something you can use, not something you can read about.",
+    inProgress: "in progress",
+
+    decisionsTitle: "Decisions on the record",
+    decisionsLede:
+      "Blueprint §8 asks for a decision log. Here it is, and it stays current. Each one names what we chose, and what would make us revisit it.",
+
+    ownershipEyebrow: "Ownership",
+    ownershipTitle: "Every account is created in I AM 4 Kids’ name.",
+    ownershipBody:
+      "The repository, the hosting, the database, the email sender, the social accounts — all owned by I AM 4 Kids, with TechFides added as an administrator who can be removed on a Tuesday afternoon without anything breaking. Never the reverse. That is a condition of the work, not a favour.",
+
+    footer:
+      "Built by TechFides for I AM 4 Kids. Foundation — architecture, schema and access model. Not a public site.",
+  },
+
+  impact: {
+    eyebrow: "I AM 4 Kids · Impact",
+    title: "What the platform can prove.",
+    lede:
+      "Every number here is a live count from the database. Nothing is typed in, nothing is estimated, and nothing can be quietly adjusted. Today they read zero, because today is day one — which is exactly why they will mean something in ninety days.",
+    families: "Families",
+    children: "Children reached",
+    guardians: "Guardians",
+    schools: "Schools & districts",
+    sessionsHeld: "Sessions held",
+    sessionsUpcoming: "Sessions scheduled",
+    registrations: "Registrations",
+    attended: "Attended",
+    noShows: "No-shows",
+    attendanceRate: "Attendance rate",
+    consents: "Consents on record",
+    contentAssets: "Content assets",
+    published: "Pieces published",
+    awaitingApproval: "Awaiting approval",
+    openExceptions: "Open exceptions",
+    groupReach: "Reach",
+    groupEvents: "Events",
+    groupTrust: "Trust & safety",
+    groupContent: "Content",
+    liveNote: "Live from the database",
+    offlineNote:
+      "The database is not connected to this deployment yet, so these read as unavailable rather than as zero. A dashboard that invents a number is worse than one that admits it cannot see.",
+    whyZero: "Why every number is zero",
+    whyZeroBody:
+      "Because nothing has been faked. The previous system was seeded with invented schools, invented contracts and a $45,000 pilot that never existed. All of it has been removed. What replaces it counts only what actually happens — so the first family who registers moves a number that has never moved before.",
+  },
+
+  content: {
+    eyebrow: "I AM 4 Kids · Content OS",
+    title: "One recording becomes ten pieces. Nothing publishes without a human.",
+    lede:
+      "Paste a transcript, a talk, a voice note — anything you have already said. The platform drafts it for every channel. Then it stops, and waits for a name.",
+    inputLabel: "Source material",
+    placeholder:
+      "Paste a session transcript or a few paragraphs of something you have already said…",
+    sample: "Use a sample",
+    generate: "Draft for every channel",
+    clear: "Clear",
+    empty: "Paste something above and the drafts appear here.",
+    tooShort: "Give it a couple of sentences to work with.",
+    gateTitle: "The approval gate",
+    gateBody:
+      "Every draft below is held. Approve one and it moves to the publishing queue; reject it and it goes back. The decision is recorded against your name and the wording you saw — not inferred later from a status field. This gate is not a formality. For a children’s charity it is the product.",
+    approve: "Approve",
+    reject: "Reject",
+    approved: "Approved — queued to publish",
+    rejected: "Rejected — returned to drafting",
+    pending: "Awaiting approval",
+    apiMode: "Publishes by API",
+    handoffMode: "Manual handoff",
+    handoffWhy:
+      "This platform restricts automated posting. The queue hands you the finished piece instead of pretending it published.",
+    honest:
+      "Drafting here runs on rules, not a language model — enough to show the shape and the gate. The model plugs into this same pipeline in Week 3, and the gate does not move.",
+    charCount: "characters",
+  },
+
+  admin: {
+    eyebrow: "I AM 4 Kids · Staff",
+    title: "The screen your team runs an event from.",
+    lede:
+      "No engineer, no spreadsheet, no one asking who has the list. Sessions, registrations, attendance, and the failures that would otherwise stay invisible until the night itself.",
+    upcoming: "Upcoming sessions",
+    noSessions: "No sessions scheduled.",
+    registrations: "Registrations",
+    noRegistrations: "No registrations yet.",
+    exceptions: "Exception queue",
+    noExceptions: "Nothing failing. This queue is meant to be empty.",
+    exceptionsLede:
+      "A bounced confirmation is a family who will not turn up and will never tell you why. It surfaces here in seconds, tied to the registration, instead of being discovered on the night.",
+    capacity: "capacity",
+    registered: "registered",
+    starts: "Starts",
+    guardian: "Guardian",
+    child: "Child",
+    when: "When",
+    status: "Status",
+    locked: "Staff data is locked",
+    lockedBody:
+      "This screen reads guardian names, children and registrations, so it needs the database credentials that the public pages deliberately do not use. Add the service role key to this deployment and the screen fills in. Until then it shows you the shape and none of the people — which is the correct failure.",
+  },
+
+  register: {
+    title: "Save your family’s place",
+    subtitle: "Be Great! Family Reset — the parent registers, the whole family attends.",
+    guardianName: "Parent or guardian name",
+    email: "Email",
+    childFirstName: "Child’s first name",
+    childAge: "Child’s age",
+    consent:
+      "I am the parent or legal guardian and I consent to I AM 4 Kids contacting me about this session. My child does not create an account and will not be contacted directly.",
+    submit: "Reserve our place",
+    error: "Please complete every field and confirm guardian consent.",
+    confirmTitle: "You’re in.",
+    confirmBody:
+      "A confirmation is on its way with your link and a calendar file. We’ll remind you 24 hours and 1 hour before — in your time zone.",
+    wrote: "What that one submission wrote",
+    wouldWrite: "What that one submission would write",
+    sixRecords:
+      "Six records. Zero child accounts. The child is in the database because we count and celebrate them — and there is no column anywhere that could be used to contact them.",
+    previewNote:
+      "Preview mode — database credentials are not set on this deployment, so nothing was saved.",
+    back: "Back to the foundation",
+    provisional: "Provisional date",
+    provisionalBody:
+      "This session is scheduled for demonstration so the flow can be shown end to end. The real date and format are still yours to set.",
+    sending: "One moment…",
+  },
+};
+
+/**
+ * The shape English defines. No `as const` on `en` — literal types would make
+ * every Spanish string a type error rather than a translation. Structure is
+ * still enforced: a key present in English and missing in Spanish fails the
+ * build, which is the whole point of keeping both in one file.
+ */
+type Copy = typeof en;
+
+const es: Copy = {
+  nav: {
+    foundation: "Fundamento",
+    impact: "Impacto",
+    content: "Contenido",
+    admin: "Equipo",
+    register: "Inscribirse",
+    switch: "English",
+  },
+
+  home: {
+    eyebrow: "I AM 4 Kids · Fundamento de la plataforma",
+    title: "Un solo fundamento. Toda la visión se apoya en él.",
+    lede:
+      "El plano describe un universo de empoderamiento infantil: una serie, personajes, juguetes, videojuegos, libros, ropa. Son seis productos. También son seis oportunidades de construir seis bases de datos incomunicadas. Esto es lo que impide que eso ocurra: un solo registro por familia, un solo lugar desde donde se gestionan los eventos y el contenido, y un niño al que se cuenta y se celebra, pero al que nunca se contacta.",
+    ctaRegister: "Ver a una familia inscribirse",
+    ctaVision: "La visión a la que sirve",
+    ctaImpact: "Ver el panel de impacto",
+
+    decisionEyebrow: "La decisión de la que depende todo lo demás",
+    decisionTitle: "Un niño es un registro, no un usuario.",
+    decisionBody:
+      "COPPA se activa en el momento en que un niño puede iniciar sesión o ser contactado directamente. En lugar de construir todo un aparato de consentimiento alrededor de las cuentas infantiles, eliminamos el detonante. El perfil de un niño no tiene correo, ni inicio de sesión, ni teléfono. No existe la columna donde ponerlo. Toda la visión del plano sigue funcionando: el padre o la madre es con quien hablamos.",
+    decisionFooter:
+      "Lo garantiza el esquema de la base de datos, no una regla que alguien tenga que recordar.",
+
+    stackTitle: "Cómo se apila",
+    stackLede:
+      "Los módulos nunca leen las tablas de los demás. Comparten el fundamento. Esa es la diferencia entre una plataforma y una carpeta llena de herramientas.",
+
+    tablesTitle: "Lo que ya está construido",
+    tablesLede:
+      "Dieciocho tablas en seis migraciones, con seguridad a nivel de fila sobre los registros de los niños. Esto es código publicado que corre contra una base de datos real, no un diagrama.",
+
+    weeksTitle: "Los primeros treinta días",
+    weeksLede: "Cada semana termina con algo que puede usar, no con algo que puede leer.",
+    inProgress: "en curso",
+
+    decisionsTitle: "Decisiones registradas",
+    decisionsLede:
+      "La sección §8 del plano pide un registro de decisiones. Aquí está, y se mantiene al día. Cada una dice qué elegimos y qué nos haría replantearlo.",
+
+    ownershipEyebrow: "Propiedad",
+    ownershipTitle: "Cada cuenta se crea a nombre de I AM 4 Kids.",
+    ownershipBody:
+      "El repositorio, el alojamiento, la base de datos, el servicio de correo, las redes sociales: todo es propiedad de I AM 4 Kids, con TechFides añadido como administrador que puede ser retirado un martes por la tarde sin que nada se rompa. Nunca al revés. Es una condición del trabajo, no un favor.",
+
+    footer:
+      "Construido por TechFides para I AM 4 Kids. Fundamento: arquitectura, esquema y modelo de acceso. No es un sitio público.",
+  },
+
+  impact: {
+    eyebrow: "I AM 4 Kids · Impacto",
+    title: "Lo que la plataforma puede demostrar.",
+    lede:
+      "Cada número aquí es un conteo en vivo de la base de datos. Nada se escribe a mano, nada se estima y nada se puede ajustar en silencio. Hoy marcan cero, porque hoy es el primer día: precisamente por eso van a significar algo dentro de noventa días.",
+    families: "Familias",
+    children: "Niños alcanzados",
+    guardians: "Padres y tutores",
+    schools: "Escuelas y distritos",
+    sessionsHeld: "Sesiones realizadas",
+    sessionsUpcoming: "Sesiones programadas",
+    registrations: "Inscripciones",
+    attended: "Asistieron",
+    noShows: "No asistieron",
+    attendanceRate: "Tasa de asistencia",
+    consents: "Consentimientos vigentes",
+    contentAssets: "Materiales de contenido",
+    published: "Piezas publicadas",
+    awaitingApproval: "Esperando aprobación",
+    openExceptions: "Incidencias abiertas",
+    groupReach: "Alcance",
+    groupEvents: "Eventos",
+    groupTrust: "Confianza y protección",
+    groupContent: "Contenido",
+    liveNote: "En vivo desde la base de datos",
+    offlineNote:
+      "La base de datos todavía no está conectada a este despliegue, así que estos valores aparecen como no disponibles en lugar de como cero. Un panel que inventa un número es peor que uno que admite que no puede verlo.",
+    whyZero: "Por qué todo está en cero",
+    whyZeroBody:
+      "Porque no se ha falseado nada. El sistema anterior estaba sembrado de escuelas inventadas, contratos inventados y un programa piloto de 45.000 dólares que nunca existió. Todo eso se eliminó. Lo que lo reemplaza sólo cuenta lo que de verdad ocurre, así que la primera familia que se inscriba moverá un número que nunca antes se había movido.",
+  },
+
+  content: {
+    eyebrow: "I AM 4 Kids · Sistema de contenido",
+    title: "Una grabación se convierte en diez piezas. Nada se publica sin una persona.",
+    lede:
+      "Pegue una transcripción, una charla, una nota de voz: cualquier cosa que ya haya dicho. La plataforma redacta la versión de cada canal. Después se detiene y espera un nombre.",
+    inputLabel: "Material de origen",
+    placeholder:
+      "Pegue aquí la transcripción de una sesión o unos párrafos de algo que ya haya dicho…",
+    sample: "Usar un ejemplo",
+    generate: "Redactar para cada canal",
+    clear: "Limpiar",
+    empty: "Pegue algo arriba y los borradores aparecerán aquí.",
+    tooShort: "Déle un par de frases con las que trabajar.",
+    gateTitle: "La puerta de aprobación",
+    gateBody:
+      "Cada borrador de abajo está retenido. Si aprueba uno, pasa a la cola de publicación; si lo rechaza, vuelve a redacción. La decisión queda registrada con su nombre y con el texto exacto que usted vio, no deducida después de un campo de estado. Esta puerta no es un trámite. Para una organización dedicada a la infancia, es el producto.",
+    approve: "Aprobar",
+    reject: "Rechazar",
+    approved: "Aprobado — en cola para publicar",
+    rejected: "Rechazado — devuelto a redacción",
+    pending: "Esperando aprobación",
+    apiMode: "Publica por API",
+    handoffMode: "Entrega manual",
+    handoffWhy:
+      "Esta plataforma restringe la publicación automática. La cola le entrega la pieza terminada en lugar de fingir que se publicó.",
+    honest:
+      "Aquí la redacción funciona con reglas, no con un modelo de lenguaje: lo justo para mostrar la forma y la puerta de aprobación. El modelo se conecta a esta misma tubería en la semana 3, y la puerta no se mueve.",
+    charCount: "caracteres",
+  },
+
+  admin: {
+    eyebrow: "I AM 4 Kids · Equipo",
+    title: "La pantalla desde la que su equipo dirige un evento.",
+    lede:
+      "Sin ingenieros, sin hojas de cálculo, sin nadie preguntando quién tiene la lista. Sesiones, inscripciones, asistencia y los fallos que de otro modo seguirían invisibles hasta la noche misma.",
+    upcoming: "Próximas sesiones",
+    noSessions: "No hay sesiones programadas.",
+    registrations: "Inscripciones",
+    noRegistrations: "Todavía no hay inscripciones.",
+    exceptions: "Cola de incidencias",
+    noExceptions: "Nada está fallando. Esta cola está hecha para estar vacía.",
+    exceptionsLede:
+      "Una confirmación rebotada es una familia que no va a venir y que nunca le dirá por qué. Aparece aquí en segundos, ligada a la inscripción, en vez de descubrirse la noche del evento.",
+    capacity: "aforo",
+    registered: "inscritos",
+    starts: "Comienza",
+    guardian: "Padre o tutor",
+    child: "Niño",
+    when: "Cuándo",
+    status: "Estado",
+    locked: "Los datos del equipo están protegidos",
+    lockedBody:
+      "Esta pantalla lee nombres de tutores, niños e inscripciones, así que necesita las credenciales de base de datos que las páginas públicas deliberadamente no usan. Añada la clave de servicio a este despliegue y la pantalla se completa. Hasta entonces le muestra la forma y a ninguna persona, que es el fallo correcto.",
+  },
+
+  register: {
+    title: "Reserve el lugar de su familia",
+    subtitle:
+      "Be Great! Family Reset — se inscribe el padre o la madre, asiste toda la familia.",
+    guardianName: "Nombre del padre, madre o tutor",
+    email: "Correo electrónico",
+    childFirstName: "Nombre del niño o la niña",
+    childAge: "Edad del niño o la niña",
+    consent:
+      "Soy el padre, la madre o el tutor legal y doy mi consentimiento para que I AM 4 Kids me contacte sobre esta sesión. Mi hijo o hija no crea ninguna cuenta y no será contactado directamente.",
+    submit: "Reservar nuestro lugar",
+    error: "Complete todos los campos y confirme el consentimiento del tutor.",
+    confirmTitle: "Listo, ya están dentro.",
+    confirmBody:
+      "Le llegará una confirmación con su enlace y un archivo de calendario. Le recordaremos 24 horas y 1 hora antes, en su propia zona horaria.",
+    wrote: "Lo que escribió ese único envío",
+    wouldWrite: "Lo que escribiría ese único envío",
+    sixRecords:
+      "Seis registros. Cero cuentas infantiles. El niño está en la base de datos porque lo contamos y lo celebramos, y no existe ninguna columna que pudiera usarse para contactarlo.",
+    previewNote:
+      "Modo de vista previa: las credenciales de la base de datos no están configuradas en este despliegue, así que no se guardó nada.",
+    back: "Volver al fundamento",
+    provisional: "Fecha provisional",
+    provisionalBody:
+      "Esta sesión está programada como demostración, para poder mostrar el flujo completo. La fecha y el formato reales siguen siendo decisión suya.",
+    sending: "Un momento…",
+  },
+};
+
+export const COPY: Record<Locale, Copy> = { en, es };
+
+export function t(locale: string): Copy {
+  return isLocale(locale) ? COPY[locale] : COPY.en;
+}
