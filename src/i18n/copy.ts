@@ -25,6 +25,7 @@ const en = {
     content: "Content",
     admin: "Admin",
     register: "Register",
+    feedback: "Your review",
     switch: "Español",
   },
 
@@ -181,6 +182,83 @@ const en = {
       "This session is scheduled for demonstration so the flow can be shown end to end. The real date and format are still yours to set.",
     sending: "One moment…",
   },
+
+  feedback: {
+    eyebrow: "I AM 4 Kids · Your review",
+    title: "Tell us where this is right, and where it is not.",
+    lede:
+      "Six short sections. Answer what you have a view on and skip the rest — a half-filled form beats a meeting nobody wrote down. Everything you write here is recorded against the work, not lost in a thread.",
+    time: "About five minutes. Nothing is required except your name.",
+
+    s1: "1. You",
+    name: "Your name",
+    role: "Your role",
+    rolePlaceholder: "Founder, I AM 4 Kids",
+
+    s2: "2. The vision",
+    s2lede:
+      "You described a kids’ empowerment universe. The question is not whether we built something. It is whether we built something that serves that.",
+    visionServes: "Does what you are looking at serve the vision as you described it?",
+    visionServesPlaceholder: "Where it lands, and where it misses.",
+    visionMissing: "What is in your vision that you do not see here yet?",
+    visionMissingPlaceholder:
+      "The show, the characters, the books, the apparel, the school programme. Anything we have not accounted for.",
+
+    s3: "3. The public site",
+    s3lede: "The site families and schools see first.",
+    websiteLikes: "What is working?",
+    websiteChanges: "What would you change?",
+    websiteChangesPlaceholder: "Wording, images, order of the page, anything that feels off-brand.",
+
+    s4: "4. The platform",
+    s4lede:
+      "The foundation, the registration flow, the impact dashboard, the content screen, the staff console.",
+    platformLikes: "What is working?",
+    platformChanges: "What is not right?",
+    platformChangesPlaceholder:
+      "Be blunt. Something that is wrong now is cheap. The same thing in three months is not.",
+    hopes: "What else do you hope to see?",
+    hopesPlaceholder: "Things you expected, things you have thought of since, things you want next.",
+
+    s5: "5. Timing",
+    s5lede: "The date matters less than what is driving it. Tell us both.",
+    goLiveDate: "Target go-live date",
+    goLiveDriver: "What is driving that date?",
+    goLiveDriverPlaceholder:
+      "School year, a launch event, a funder deadline, a season. Whatever is really behind it.",
+    priority: "If only one thing could be finished first, which?",
+    priorityChoose: "Choose one",
+    pEvents: "Events — registration, reminders, attendance",
+    pContent: "Content — one recording into many pieces",
+    pSchools: "Schools — rosters and school programmes",
+    pImpact: "Impact reporting — what we can prove to funders",
+    pPublicSite: "The public site — what families see first",
+    pNotSure: "Not sure yet",
+
+    s6: "6. Rules and approvals",
+    s6lede:
+      "Three answers we need before anything is drafted or published in your name. They are quicker to write than to discuss.",
+    approver: "Who approves content when you are not available?",
+    approverPlaceholder: "A name, or “nobody, it waits for me”.",
+    guardrails: "What must the AI never say or do in your name?",
+    guardrailsPlaceholder:
+      "Words you never use, claims you never make, anything about children that is off limits.",
+    channels: "Which two channels matter most first?",
+    channelsPlaceholder: "For example: Facebook and email. Or LinkedIn and Instagram.",
+    anythingElse: "Anything else",
+    anythingElsePlaceholder: "Whatever did not fit above.",
+
+    submit: "Send my feedback",
+    sending: "Sending…",
+    needName: "Please add your name so we know whose view this is.",
+    failed: "That did not send. Try once more, and if it still fails, email it to Jacques.",
+    thanksTitle: "Thank you. This is recorded.",
+    thanksBody:
+      "Your answers are saved against the project, with today’s date. Nothing here disappears into an inbox. We will work from it and come back to you on each point.",
+    thanksNext: "Back to the platform",
+    savedLocal:
+      "Saved locally — the database was not reachable, so a copy is on screen below. Please send it to Jacques so nothing is lost.",
+  },
 };
 
 /**
@@ -198,6 +276,7 @@ const es: Copy = {
     content: "Contenido",
     admin: "Equipo",
     register: "Inscribirse",
+    feedback: "Su valoración",
     switch: "English",
   },
 
@@ -355,6 +434,86 @@ const es: Copy = {
     provisionalBody:
       "Esta sesión está programada como demostración, para poder mostrar el flujo completo. La fecha y el formato reales siguen siendo decisión suya.",
     sending: "Un momento…",
+  },
+
+  feedback: {
+    eyebrow: "I AM 4 Kids · Su valoración",
+    title: "Díganos dónde acertamos y dónde no.",
+    lede:
+      "Seis secciones breves. Conteste aquello sobre lo que tenga una opinión y salte el resto: un formulario a medias vale más que una reunión que nadie anotó. Todo lo que escriba aquí queda registrado junto al trabajo, no perdido en un correo.",
+    time: "Unos cinco minutos. Lo único obligatorio es su nombre.",
+
+    s1: "1. Usted",
+    name: "Su nombre",
+    role: "Su cargo",
+    rolePlaceholder: "Fundador, I AM 4 Kids",
+
+    s2: "2. La visión",
+    s2lede:
+      "Usted describió un universo de empoderamiento infantil. La pregunta no es si construimos algo. Es si construimos algo que sirva a esa visión.",
+    visionServes: "¿Lo que está viendo sirve a la visión tal como usted la describió?",
+    visionServesPlaceholder: "En qué acierta y en qué se queda corto.",
+    visionMissing: "¿Qué hay en su visión que todavía no ve aquí?",
+    visionMissingPlaceholder:
+      "La serie, los personajes, los libros, la ropa, el programa escolar. Cualquier cosa que no hayamos contemplado.",
+
+    s3: "3. El sitio público",
+    s3lede: "Lo primero que ven las familias y las escuelas.",
+    websiteLikes: "¿Qué está funcionando?",
+    websiteChanges: "¿Qué cambiaría?",
+    websiteChangesPlaceholder:
+      "Textos, imágenes, el orden de la página, cualquier cosa que no suene a su marca.",
+
+    s4: "4. La plataforma",
+    s4lede:
+      "El fundamento, el flujo de inscripción, el panel de impacto, la pantalla de contenido y la consola del equipo.",
+    platformLikes: "¿Qué está funcionando?",
+    platformChanges: "¿Qué no está bien?",
+    platformChangesPlaceholder:
+      "Sea directo. Algo que está mal hoy sale barato. Lo mismo dentro de tres meses, no.",
+    hopes: "¿Qué más espera ver?",
+    hopesPlaceholder:
+      "Cosas que esperaba, cosas que se le han ocurrido después, cosas que quiere a continuación.",
+
+    s5: "5. Plazos",
+    s5lede: "La fecha importa menos que lo que hay detrás. Cuéntenos las dos cosas.",
+    goLiveDate: "Fecha objetivo de lanzamiento",
+    goLiveDriver: "¿Qué determina esa fecha?",
+    goLiveDriverPlaceholder:
+      "El curso escolar, un evento de lanzamiento, el plazo de un donante, una temporada. Lo que de verdad haya detrás.",
+    priority: "Si sólo pudiera terminarse una cosa primero, ¿cuál sería?",
+    priorityChoose: "Elija una",
+    pEvents: "Eventos: inscripción, recordatorios, asistencia",
+    pContent: "Contenido: una grabación convertida en muchas piezas",
+    pSchools: "Escuelas: listas y programas escolares",
+    pImpact: "Informes de impacto: lo que podemos demostrar a los donantes",
+    pPublicSite: "El sitio público: lo primero que ven las familias",
+    pNotSure: "Todavía no lo sé",
+
+    s6: "6. Reglas y aprobaciones",
+    s6lede:
+      "Tres respuestas que necesitamos antes de redactar o publicar nada en su nombre. Se escriben más rápido de lo que se discuten.",
+    approver: "¿Quién aprueba el contenido cuando usted no está disponible?",
+    approverPlaceholder: "Un nombre, o «nadie, que espere a que yo lo vea».",
+    guardrails: "¿Qué no debe decir ni hacer nunca la IA en su nombre?",
+    guardrailsPlaceholder:
+      "Palabras que usted nunca usa, afirmaciones que nunca hace, cualquier cosa sobre los niños que esté fuera de límites.",
+    channels: "¿Qué dos canales importan más al principio?",
+    channelsPlaceholder: "Por ejemplo: Facebook y correo. O LinkedIn e Instagram.",
+    anythingElse: "Cualquier otra cosa",
+    anythingElsePlaceholder: "Lo que no haya cabido arriba.",
+
+    submit: "Enviar mi valoración",
+    sending: "Enviando…",
+    needName: "Añada su nombre para saber de quién es esta valoración.",
+    failed:
+      "No se pudo enviar. Inténtelo una vez más y, si sigue fallando, envíeselo a Jacques por correo.",
+    thanksTitle: "Gracias. Queda registrado.",
+    thanksBody:
+      "Sus respuestas quedan guardadas junto al proyecto, con la fecha de hoy. Nada de esto desaparece en una bandeja de entrada. Trabajaremos a partir de ello y le responderemos punto por punto.",
+    thanksNext: "Volver a la plataforma",
+    savedLocal:
+      "Guardado localmente: no se pudo alcanzar la base de datos, así que abajo tiene una copia en pantalla. Envíesela a Jacques para que no se pierda nada.",
   },
 };
 

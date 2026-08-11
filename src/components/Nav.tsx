@@ -33,9 +33,23 @@ export function Nav({ locale, current }: { locale: Locale; current: string }) {
             {i.label}
           </Link>
         ))}
+
+        {/* Held apart from the rest. This is the one thing we are asking him to do. */}
+        <Link
+          href={`/${locale}/feedback`}
+          className={
+            "ml-auto rounded-md px-3 py-1.5 font-semibold transition " +
+            (current === "feedback"
+              ? "bg-[#f5a524] text-[#0b1b3a]"
+              : "border border-[#f5a524]/60 bg-[#fffaf0] text-[#8a5a00] hover:border-[#f5a524]")
+          }
+        >
+          {c.feedback}
+        </Link>
+
         <Link
           href={swapped}
-          className="ml-auto rounded-md border border-[#0b1b3a]/15 px-3 py-1.5 font-semibold text-[#0b1b3a] transition hover:border-[#0b1b3a]/40"
+          className="rounded-md border border-[#0b1b3a]/15 px-3 py-1.5 font-semibold text-[#0b1b3a] transition hover:border-[#0b1b3a]/40"
         >
           {c.switch}
         </Link>
