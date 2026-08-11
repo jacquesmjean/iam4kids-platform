@@ -68,13 +68,20 @@ export async function registerFamily(input: RegistrationInput): Promise<Registra
   );
 
   // 4. The child. Note what is absent: no email, no phone, no auth_user_id.
+  //    Upsert rather than insert: within one household a child is identified
+  //    by first name and age, so a parent tapping submit twice on a phone
+  //    updates one child instead of creating two. Siblings still get their
+  //    own row, because they differ on one of those two.
   const { data: child, error: cErr } = await db
     .from("child_profile")
-    .insert({
-      household_id: household.id,
-      first_name: input.childFirstName,
-      age_band: input.childAge,
-    })
+    .upsert(
+      {
+        household_id: household.id,
+        first_name: input.childFirstName,
+        age_band: input.childAge,
+      },
+      { onConflict: "household_id,first_name,age_band" }
+    )
     .select("id")
     .single();
   if (cErr) throw cErr;
