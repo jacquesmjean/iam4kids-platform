@@ -8,12 +8,14 @@ export interface ConsoleCounts {
   feedback: number;
   schools: number;
   decisions: number;
+  content: number;
 }
 
 const TABS = [
   { path: "", label: "Overview", count: "notifications" as const },
   { path: "/feedback", label: "Feedback", count: "feedback" as const },
   { path: "/schools", label: "School inquiries", count: "schools" as const },
+  { path: "/content", label: "Content", count: "content" as const },
   { path: "/site", label: "Page editor", count: null },
   { path: "/events", label: "Events", count: null },
   { path: "/atlas", label: "Atlas", count: null },

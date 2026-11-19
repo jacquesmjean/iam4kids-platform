@@ -29,11 +29,12 @@ export default async function ConsoleLayout({
   }
 
   const head = { count: "exact" as const, head: true };
-  const [n, f, s, d] = await Promise.all([
+  const [n, f, s, d, c] = await Promise.all([
     staff.db.from("staff_notification").select("id", head).is("read_at", null),
     staff.db.from("client_feedback").select("id", head).is("read_at", null),
     staff.db.from("school_inquiry").select("id", head).eq("status", "new"),
     staff.db.from("decision_request").select("id", head).eq("status", "open"),
+    staff.db.from("content_derivative").select("id", head).eq("status", "in_review"),
   ]);
 
   const firstName = staff.fullName.split(" ")[0];
@@ -73,6 +74,7 @@ export default async function ConsoleLayout({
                 feedback: f.count ?? 0,
                 schools: s.count ?? 0,
                 decisions: d.count ?? 0,
+                content: c.count ?? 0,
               }}
             />
           </div>

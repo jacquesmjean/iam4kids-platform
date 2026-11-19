@@ -1,7 +1,7 @@
 import { Nav } from "@/components/Nav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { t, isLocale, type Locale } from "@/i18n/copy";
-import { getImpactCounts } from "@/lib/public-db";
+import { getImpactCounts, publicDb } from "@/lib/public-db";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -54,7 +54,14 @@ export default async function ImpactPage({
   const locale: Locale = isLocale(raw) ? raw : "en";
   const c = t(locale).impact;
 
-  const counts = await getImpactCounts();
+  // Mark's verified history: only Atlas claims he has approved, title and text only.
+  const db = publicDb();
+  const [counts, track] = await Promise.all([
+    getImpactCounts(),
+    db
+      ? db.rpc("public_track_record").then(({ data }) => (data as { title: string; body: string }[] | null) ?? [])
+      : Promise.resolve([] as { title: string; body: string }[]),
+  ]);
   const live = counts !== null;
 
   // "—" not "0" when the database is unreachable. A dashboard that shows a
@@ -87,6 +94,21 @@ export default async function ImpactPage({
           />
           {live ? c.liveNote : c.offlineNote.split(".")[0] + "."}
         </div>
+
+        {track.length > 0 && (
+          <section className="mt-10 rounded-2xl bg-[#0b1b3a] p-7 text-white md:p-9">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-[#f5a524]">{c.trackTitle}</h2>
+            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-white/70">{c.trackLede}</p>
+            <div className="mt-6 grid gap-4 md:grid-cols-3">
+              {track.map((r) => (
+                <div key={r.title} className="rounded-xl bg-white/10 p-5">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-white/60">{r.title}</p>
+                  <p className="mt-2 text-lg font-semibold leading-snug">{r.body}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
         <Group title={c.groupReach}>
           <Stat label={c.families} value={n(counts?.families)} accent />

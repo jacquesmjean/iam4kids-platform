@@ -97,6 +97,9 @@ const en = {
     liveNote: "Live from the database",
     offlineNote:
       "The database is not connected to this deployment yet, so these read as unavailable rather than as zero. A dashboard that invents a number is worse than one that admits it cannot see.",
+    trackTitle: "Track record",
+    trackLede:
+      "Results I AM 4 Kids has confirmed and approved, with the evidence on file. The live counts below start from the day this platform opened.",
     whyZero: "Why every number is zero",
     whyZeroBody:
       "Because these numbers only count what actually happens on this platform, and it is new. An earlier TechFides demo system was filled with sample schools, sample contracts and a sample $45,000 pilot to show the layout. None of that came from I AM 4 Kids, and none of your real history was ever stored here or removed. Your real accomplishments belong in Atlas, recorded with their evidence, so they can be shown accurately.",
@@ -357,6 +360,9 @@ const es: Copy = {
     liveNote: "En vivo desde la base de datos",
     offlineNote:
       "La base de datos todavía no está conectada a este despliegue, así que estos valores aparecen como no disponibles en lugar de como cero. Un panel que inventa un número es peor que uno que admite que no puede verlo.",
+    trackTitle: "Trayectoria",
+    trackLede:
+      "Resultados que I AM 4 Kids ha confirmado y aprobado, con la evidencia archivada. Los conteos en vivo de abajo empiezan el día en que abrió esta plataforma.",
     whyZero: "Por qué todo está en cero",
     whyZeroBody:
       "Porque estas cifras solo cuentan lo que de verdad ocurre en esta plataforma, y es nueva. Un sistema de demostración anterior de TechFides se llenó con escuelas, contratos y un piloto de 45.000 dólares de ejemplo, solo para mostrar el diseño. Nada de eso venía de I AM 4 Kids, y ninguna parte de su historia real se guardó aquí ni se eliminó. Sus logros reales pertenecen a Atlas, registrados con su evidencia, para poder mostrarlos con precisión.",

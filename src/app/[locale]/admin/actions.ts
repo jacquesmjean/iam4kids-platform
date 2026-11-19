@@ -430,3 +430,57 @@ export async function changePassword(form: FormData) {
   }
   back(locale, "", { ok: "Password changed. From now on, sign in with the new one." });
 }
+
+// ---------------------------------------------------------------- content review
+
+const DECISIONS = ["approved", "rejected", "changes_requested"] as const;
+
+/**
+ * Approve, reject or send back a draft. The decision is its own row in
+ * `approval`, with the reviewer and the moment, never inferred later from a
+ * status field. That record is what "nothing published without approval"
+ * rests on.
+ */
+export async function reviewDraft(form: FormData) {
+  const locale = loc(form);
+  const staff = await requireStaff(locale);
+  const id = str(form, "id");
+  const decision = str(form, "decision") as (typeof DECISIONS)[number];
+  if (!DECISIONS.includes(decision)) back(locale, "/content", { error: "Unknown decision." });
+  const note = opt(form, "note");
+  if (decision === "changes_requested" && !note) {
+    back(locale, "/content", { error: "Say what should change, so the next draft gets it right." }, `#c-${id}`);
+  }
+
+  const { error: aErr } = await staff.db
+    .from("approval")
+    .insert({ derivative_id: id, reviewer_id: staff.personId, decision, note });
+  if (aErr) back(locale, "/content", { error: explain(aErr.message) }, `#c-${id}`);
+
+  const status = decision === "approved" ? "approved" : decision === "rejected" ? "rejected" : "draft";
+  const { error } = await staff.db.from("content_derivative").update({ status }).eq("id", id);
+  if (error) back(locale, "/content", { error: explain(error.message) }, `#c-${id}`);
+
+  const words = {
+    approved: "Approved. Copy it and post it.",
+    rejected: "Rejected. It will not be used.",
+    changes_requested: "Sent back with your note.",
+  };
+  back(locale, "/content", { ok: words[decision] }, `#c-${id}`);
+}
+
+/** Mark edits the wording himself. His edit goes back to review, so it is approved as it now reads. */
+export async function editDraft(form: FormData) {
+  const locale = loc(form);
+  const staff = await requireStaff(locale);
+  const id = str(form, "id");
+  const body = String(form.get("body") ?? "").replace(/\r\n/g, "\n").trim();
+  if (!body) back(locale, "/content", { error: "The draft cannot be empty." }, `#c-${id}`);
+
+  const { error } = await staff.db
+    .from("content_derivative")
+    .update({ body, status: "in_review", generated_by: "human" })
+    .eq("id", id);
+  if (error) back(locale, "/content", { error: explain(error.message) }, `#c-${id}`);
+  back(locale, "/content", { ok: "Saved. Approve it when it reads right." }, `#c-${id}`);
+}
