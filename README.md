@@ -24,10 +24,30 @@ This is enforced by the schema, not by convention. See
 ```
 docs/         Architecture, decision log, access checklist
 supabase/     Migrations — the foundation, Event OS, Content OS, RLS
-src/app/      Routes. [locale] for en/es; api/v1 for the platform API
+src/app/      Routes. [locale]/(site) is the public website, [locale]/admin the
+              staff console, api/v1 the platform API (inquiry, concierge, ...)
+src/site/     The public site: shell (header, footer, chat), page bodies in
+              src/site/pages/<page>.<en|es>.tsx, the chat script, form
 src/lib/      Domain logic. Business rules live here, not in routes
 src/i18n/     Translations. en + es from the first commit
 ```
+
+## One app, one backend
+
+The public website (Home, Families, Schools, Movement, Vision, Founder, Get
+Started, Terms, Privacy, Impact, Register) and the staff console are the same
+Next.js app on the same Supabase project. Every form and every chat lands in
+the console:
+
+| Visitor does | Lands in | Console screen |
+|---|---|---|
+| Get Started form, parent / agency / other | `inquiry` via `submit_inquiry()` | Inquiries → Families & partners |
+| Get Started form, school | `school_inquiry` via `submit_inquiry()` | Inquiries → Schools |
+| Schools page form (`?from=masterclass` tracked) | `school_inquiry` | Inquiries → Schools |
+| Website chat | `concierge_message` via `log_concierge()` | Inquiries → Website chats |
+| Family Reset registration | `registration` via `register_for_event()` | Overview |
+
+The Schools page wording comes from `site_block`, edited in Page editor.
 
 ## Build order
 

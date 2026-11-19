@@ -49,6 +49,8 @@ function one<T>(v: T | T[] | null): T | null {
 const KIND_LABEL: Record<string, string> = {
   feedback: "Feedback",
   school_inquiry: "School",
+  inquiry: "Inquiry",
+  concierge: "Chat",
   registration: "Registration",
   decision_answered: "Decision",
   system: "System",
@@ -70,11 +72,12 @@ export default async function ConsoleOverview({
   const head = { count: "exact" as const, head: true };
   const nowIso = new Date().toISOString();
 
-  const [notes, decisions, feedback, schools, sessions, registrations, exceptions] = await Promise.all([
+  const [notes, decisions, feedback, schools, others, sessions, registrations, exceptions] = await Promise.all([
     db.from("staff_notification").select("id, kind, title, body, link, created_at, read_at").order("created_at", { ascending: false }).limit(15),
     db.from("decision_request").select("id", head).eq("status", "open"),
     db.from("client_feedback").select("id", head).is("read_at", null),
     db.from("school_inquiry").select("id", head).eq("status", "new"),
+    db.from("inquiry").select("id", head).eq("status", "new"),
     db.from("event_session").select("id, starts_at, capacity, status, event(title, slug)").in("status", ["scheduled", "live"]).gte("starts_at", nowIso).order("starts_at").limit(10),
     db.from("registration").select("id, registered_at, status, person(full_name, email), child_profile(first_name, age_band)").order("registered_at", { ascending: false }).limit(15),
     db.from("exception_item").select("id, area, severity, summary, created_at").is("resolved_at", null).order("created_at", { ascending: false }).limit(10),
@@ -105,7 +108,12 @@ export default async function ConsoleOverview({
       none: "Nothing waiting on you",
     },
     { href: "/feedback", n: feedback.count ?? 0, label: "Unread feedback", none: "All feedback read" },
-    { href: "/schools", n: schools.count ?? 0, label: "New school inquiries", none: "No new school inquiries" },
+    {
+      href: (schools.count ?? 0) > 0 || (others.count ?? 0) === 0 ? "/schools" : "/inquiries",
+      n: (schools.count ?? 0) + (others.count ?? 0),
+      label: "New inquiries",
+      none: "No new inquiries",
+    },
   ];
 
   return (
@@ -156,7 +164,7 @@ export default async function ConsoleOverview({
         <div className="flex flex-wrap items-end gap-3">
           <h2 className="text-lg font-bold text-[#0b1b3a]">Notifications</h2>
           <p className="text-sm text-[#12224a]/60">
-            Feedback, school inquiries and answered decisions land here the moment they arrive.
+            Feedback, inquiries, website chats and answered decisions land here the moment they arrive.
           </p>
           {unread > 0 && (
             <form action={markAllNotificationsRead} className="ml-auto">
@@ -172,7 +180,7 @@ export default async function ConsoleOverview({
             <ul className="divide-y divide-[#0b1b3a]/10">
               {notifications.map((n) => (
                 <li key={n.id} className={"flex flex-wrap items-start gap-x-4 gap-y-1 p-5 " + (n.read_at ? "" : "bg-[#fffaf0]")}>
-                  <Pill tone={n.read_at ? "grey" : "gold"}>{KIND_LABEL[n.kind] ?? n.kind}</Pill>
+                  <Pill tone={n.read_at ? "grey" : n.title.startsWith("Urgent") ? "red" : "gold"}>{KIND_LABEL[n.kind] ?? n.kind}</Pill>
                   <div className="min-w-0 flex-1">
                     {n.link ? (
                       <Link href={`/${locale}${n.link}`} className="font-semibold text-[#0b1b3a] hover:underline">

@@ -6,20 +6,20 @@ import { usePathname } from "next/navigation";
 export interface ConsoleCounts {
   notifications: number;
   feedback: number;
-  schools: number;
+  inquiries: number;
   decisions: number;
   content: number;
 }
 
-const TABS = [
-  { path: "", label: "Overview", count: "notifications" as const },
-  { path: "/feedback", label: "Feedback", count: "feedback" as const },
-  { path: "/schools", label: "School inquiries", count: "schools" as const },
-  { path: "/content", label: "Content", count: "content" as const },
+const TABS: { path: string; label: string; count: keyof ConsoleCounts | null; also?: string[] }[] = [
+  { path: "", label: "Overview", count: "notifications" },
+  { path: "/feedback", label: "Feedback", count: "feedback" },
+  { path: "/inquiries", label: "Inquiries", count: "inquiries" as const, also: ["/schools", "/chats"] },
+  { path: "/content", label: "Content", count: "content" },
   { path: "/site", label: "Page editor", count: null },
   { path: "/events", label: "Events", count: null },
   { path: "/atlas", label: "Atlas", count: null },
-  { path: "/decisions", label: "Decisions", count: "decisions" as const },
+  { path: "/decisions", label: "Decisions", count: "decisions" },
 ];
 
 export function ConsoleNav({ locale, counts }: { locale: string; counts: ConsoleCounts }) {
@@ -30,7 +30,10 @@ export function ConsoleNav({ locale, counts }: { locale: string; counts: Console
     <nav aria-label="Staff console" className="-mx-1 flex gap-1 overflow-x-auto pb-1">
       {TABS.map((t) => {
         const href = base + t.path;
-        const active = t.path === "" ? pathname === base : pathname.startsWith(href);
+        const active =
+          t.path === ""
+            ? pathname === base
+            : pathname.startsWith(href) || (t.also ?? []).some((p) => pathname.startsWith(base + p));
         const n = t.count ? counts[t.count] : 0;
         return (
           <Link

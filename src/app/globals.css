@@ -2,12 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Self-hosted Fraunces (display) and Outfit (body), both under the SIL Open Font License. */
+@font-face{font-family:Fraunces;font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/fb526027db1fc1ae-s.woff2) format("woff2");unicode-range:u+0102-0103,u+0110-0111,u+0128-0129,u+0168-0169,u+01a0-01a1,u+01af-01b0,u+0300-0301,u+0303-0304,u+0308-0309,u+0323,u+0329,u+1ea0-1ef9,u+20ab}
+@font-face{font-family:Fraunces;font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/4da3161b738b07dd-s.woff2) format("woff2");unicode-range:u+0100-02ba,u+02bd-02c5,u+02c7-02cc,u+02ce-02d7,u+02dd-02ff,u+0304,u+0308,u+0329,u+1d00-1dbf,u+1e00-1e9f,u+1ef2-1eff,u+2020,u+20a0-20ab,u+20ad-20c0,u+2113,u+2c60-2c7f,u+a720-a7ff}
+@font-face{font-family:Fraunces;font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/af4bf8399d1aacdf-s.p.woff2) format("woff2");unicode-range:u+00??,u+0131,u+0152-0153,u+02bb-02bc,u+02c6,u+02da,u+02dc,u+0304,u+0308,u+0329,u+2000-206f,u+20ac,u+2122,u+2191,u+2193,u+2212,u+2215,u+feff,u+fffd}
+@font-face{font-family:Fraunces;font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/fb526027db1fc1ae-s.woff2) format("woff2");unicode-range:u+0102-0103,u+0110-0111,u+0128-0129,u+0168-0169,u+01a0-01a1,u+01af-01b0,u+0300-0301,u+0303-0304,u+0308-0309,u+0323,u+0329,u+1ea0-1ef9,u+20ab}
+@font-face{font-family:Fraunces;font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/4da3161b738b07dd-s.woff2) format("woff2");unicode-range:u+0100-02ba,u+02bd-02c5,u+02c7-02cc,u+02ce-02d7,u+02dd-02ff,u+0304,u+0308,u+0329,u+1d00-1dbf,u+1e00-1e9f,u+1ef2-1eff,u+2020,u+20a0-20ab,u+20ad-20c0,u+2113,u+2c60-2c7f,u+a720-a7ff}
+@font-face{font-family:Fraunces;font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/af4bf8399d1aacdf-s.p.woff2) format("woff2");unicode-range:u+00??,u+0131,u+0152-0153,u+02bb-02bc,u+02c6,u+02da,u+02dc,u+0304,u+0308,u+0329,u+2000-206f,u+20ac,u+2122,u+2191,u+2193,u+2212,u+2215,u+feff,u+fffd}
+@font-face{font-family:Fraunces;font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/fb526027db1fc1ae-s.woff2) format("woff2");unicode-range:u+0102-0103,u+0110-0111,u+0128-0129,u+0168-0169,u+01a0-01a1,u+01af-01b0,u+0300-0301,u+0303-0304,u+0308-0309,u+0323,u+0329,u+1ea0-1ef9,u+20ab}
+@font-face{font-family:Fraunces;font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/4da3161b738b07dd-s.woff2) format("woff2");unicode-range:u+0100-02ba,u+02bd-02c5,u+02c7-02cc,u+02ce-02d7,u+02dd-02ff,u+0304,u+0308,u+0329,u+1d00-1dbf,u+1e00-1e9f,u+1ef2-1eff,u+2020,u+20a0-20ab,u+20ad-20c0,u+2113,u+2c60-2c7f,u+a720-a7ff}
+@font-face{font-family:Fraunces;font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/af4bf8399d1aacdf-s.p.woff2) format("woff2");unicode-range:u+00??,u+0131,u+0152-0153,u+02bb-02bc,u+02c6,u+02da,u+02dc,u+0304,u+0308,u+0329,u+2000-206f,u+20ac,u+2122,u+2191,u+2193,u+2212,u+2215,u+feff,u+fffd}
+@font-face{font-family:Fraunces;font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/fb526027db1fc1ae-s.woff2) format("woff2");unicode-range:u+0102-0103,u+0110-0111,u+0128-0129,u+0168-0169,u+01a0-01a1,u+01af-01b0,u+0300-0301,u+0303-0304,u+0308-0309,u+0323,u+0329,u+1ea0-1ef9,u+20ab}
+@font-face{font-family:Fraunces;font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/4da3161b738b07dd-s.woff2) format("woff2");unicode-range:u+0100-02ba,u+02bd-02c5,u+02c7-02cc,u+02ce-02d7,u+02dd-02ff,u+0304,u+0308,u+0329,u+1d00-1dbf,u+1e00-1e9f,u+1ef2-1eff,u+2020,u+20a0-20ab,u+20ad-20c0,u+2113,u+2c60-2c7f,u+a720-a7ff}
+@font-face{font-family:Fraunces;font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/af4bf8399d1aacdf-s.p.woff2) format("woff2");unicode-range:u+00??,u+0131,u+0152-0153,u+02bb-02bc,u+02c6,u+02da,u+02dc,u+0304,u+0308,u+0329,u+2000-206f,u+20ac,u+2122,u+2191,u+2193,u+2212,u+2215,u+feff,u+fffd}
+@font-face{font-family:Fraunces;font-style:normal;font-weight:900;font-display:swap;src:url(/fonts/fb526027db1fc1ae-s.woff2) format("woff2");unicode-range:u+0102-0103,u+0110-0111,u+0128-0129,u+0168-0169,u+01a0-01a1,u+01af-01b0,u+0300-0301,u+0303-0304,u+0308-0309,u+0323,u+0329,u+1ea0-1ef9,u+20ab}
+@font-face{font-family:Fraunces;font-style:normal;font-weight:900;font-display:swap;src:url(/fonts/4da3161b738b07dd-s.woff2) format("woff2");unicode-range:u+0100-02ba,u+02bd-02c5,u+02c7-02cc,u+02ce-02d7,u+02dd-02ff,u+0304,u+0308,u+0329,u+1d00-1dbf,u+1e00-1e9f,u+1ef2-1eff,u+2020,u+20a0-20ab,u+20ad-20c0,u+2113,u+2c60-2c7f,u+a720-a7ff}
+@font-face{font-family:Fraunces;font-style:normal;font-weight:900;font-display:swap;src:url(/fonts/af4bf8399d1aacdf-s.p.woff2) format("woff2");unicode-range:u+00??,u+0131,u+0152-0153,u+02bb-02bc,u+02c6,u+02da,u+02dc,u+0304,u+0308,u+0329,u+2000-206f,u+20ac,u+2122,u+2191,u+2193,u+2212,u+2215,u+feff,u+fffd}
+@font-face{font-family:Fraunces Fallback;src:local("Times New Roman");ascent-override:84.71%;descent-override:22.09%;line-gap-override:0.00%;size-adjust:115.45%}
+@font-face{font-family:Outfit;font-style:normal;font-weight:300;font-display:swap;src:url(/fonts/98848575513c9742-s.woff2) format("woff2");unicode-range:u+0100-02ba,u+02bd-02c5,u+02c7-02cc,u+02ce-02d7,u+02dd-02ff,u+0304,u+0308,u+0329,u+1d00-1dbf,u+1e00-1e9f,u+1ef2-1eff,u+2020,u+20a0-20ab,u+20ad-20c0,u+2113,u+2c60-2c7f,u+a720-a7ff}
+@font-face{font-family:Outfit;font-style:normal;font-weight:300;font-display:swap;src:url(/fonts/7b0b24f36b1a6d0b-s.p.woff2) format("woff2");unicode-range:u+00??,u+0131,u+0152-0153,u+02bb-02bc,u+02c6,u+02da,u+02dc,u+0304,u+0308,u+0329,u+2000-206f,u+20ac,u+2122,u+2191,u+2193,u+2212,u+2215,u+feff,u+fffd}
+@font-face{font-family:Outfit;font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/98848575513c9742-s.woff2) format("woff2");unicode-range:u+0100-02ba,u+02bd-02c5,u+02c7-02cc,u+02ce-02d7,u+02dd-02ff,u+0304,u+0308,u+0329,u+1d00-1dbf,u+1e00-1e9f,u+1ef2-1eff,u+2020,u+20a0-20ab,u+20ad-20c0,u+2113,u+2c60-2c7f,u+a720-a7ff}
+@font-face{font-family:Outfit;font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/7b0b24f36b1a6d0b-s.p.woff2) format("woff2");unicode-range:u+00??,u+0131,u+0152-0153,u+02bb-02bc,u+02c6,u+02da,u+02dc,u+0304,u+0308,u+0329,u+2000-206f,u+20ac,u+2122,u+2191,u+2193,u+2212,u+2215,u+feff,u+fffd}
+@font-face{font-family:Outfit;font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/98848575513c9742-s.woff2) format("woff2");unicode-range:u+0100-02ba,u+02bd-02c5,u+02c7-02cc,u+02ce-02d7,u+02dd-02ff,u+0304,u+0308,u+0329,u+1d00-1dbf,u+1e00-1e9f,u+1ef2-1eff,u+2020,u+20a0-20ab,u+20ad-20c0,u+2113,u+2c60-2c7f,u+a720-a7ff}
+@font-face{font-family:Outfit;font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/7b0b24f36b1a6d0b-s.p.woff2) format("woff2");unicode-range:u+00??,u+0131,u+0152-0153,u+02bb-02bc,u+02c6,u+02da,u+02dc,u+0304,u+0308,u+0329,u+2000-206f,u+20ac,u+2122,u+2191,u+2193,u+2212,u+2215,u+feff,u+fffd}
+@font-face{font-family:Outfit;font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/98848575513c9742-s.woff2) format("woff2");unicode-range:u+0100-02ba,u+02bd-02c5,u+02c7-02cc,u+02ce-02d7,u+02dd-02ff,u+0304,u+0308,u+0329,u+1d00-1dbf,u+1e00-1e9f,u+1ef2-1eff,u+2020,u+20a0-20ab,u+20ad-20c0,u+2113,u+2c60-2c7f,u+a720-a7ff}
+@font-face{font-family:Outfit;font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/7b0b24f36b1a6d0b-s.p.woff2) format("woff2");unicode-range:u+00??,u+0131,u+0152-0153,u+02bb-02bc,u+02c6,u+02da,u+02dc,u+0304,u+0308,u+0329,u+2000-206f,u+20ac,u+2122,u+2191,u+2193,u+2212,u+2215,u+feff,u+fffd}
+@font-face{font-family:Outfit;font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/98848575513c9742-s.woff2) format("woff2");unicode-range:u+0100-02ba,u+02bd-02c5,u+02c7-02cc,u+02ce-02d7,u+02dd-02ff,u+0304,u+0308,u+0329,u+1d00-1dbf,u+1e00-1e9f,u+1ef2-1eff,u+2020,u+20a0-20ab,u+20ad-20c0,u+2113,u+2c60-2c7f,u+a720-a7ff}
+@font-face{font-family:Outfit;font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/7b0b24f36b1a6d0b-s.p.woff2) format("woff2");unicode-range:u+00??,u+0131,u+0152-0153,u+02bb-02bc,u+02c6,u+02da,u+02dc,u+0304,u+0308,u+0329,u+2000-206f,u+20ac,u+2122,u+2191,u+2193,u+2212,u+2215,u+feff,u+fffd}
+@font-face{font-family:Outfit Fallback;src:local("Arial");ascent-override:100.18%;descent-override:26.05%;line-gap-override:0.00%;size-adjust:99.82%}
+
 :root {
   --night: #0b1b3a;
   --ink: #12224a;
   --blue: #2563eb;
   --gold: #f5a524;
   --cream: #fdf9f2;
+  --font-display: "Fraunces", "Fraunces Fallback", Georgia, serif;
+  --font-body: "Outfit", "Outfit Fallback", system-ui, sans-serif;
 }
 
 html {
@@ -18,3 +49,30 @@ body {
   background: var(--cream);
   color: var(--night);
 }
+
+/* ---- Public site: the design carried over from the I AM 4 Kids site ---- */
+html{scroll-behavior:smooth}
+.theme-light{background:radial-gradient(60% 40% at 80% 0,rgba(95,180,228,.22) 0,transparent 70%),radial-gradient(50% 35% at 10% 12%,rgba(240,180,41,.1) 0,transparent 70%),linear-gradient(180deg,#f4faff,#e8f2fd 45%,#f8fcff);color:#16324f;min-height:100dvh}
+::selection{background:rgba(240,180,41,.35);color:#0a1628}
+.grain:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:5;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.glass{background:linear-gradient(150deg,rgba(56,149,204,.14),rgba(18,35,59,.55));backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(95,180,228,.22)}
+.glass-strong{background:linear-gradient(160deg,rgba(39,125,176,.32),rgba(10,22,40,.85));backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(95,180,228,.3)}
+.theme-light .glass{background:linear-gradient(150deg,hsla(0,0%,100%,.92),rgba(232,242,253,.75));border:1px solid rgba(39,125,176,.18);box-shadow:0 12px 40px -18px rgba(39,125,176,.25)}
+.theme-light .glass-strong{background:linear-gradient(160deg,hsla(0,0%,100%,.96),rgba(222,238,252,.88));border:1px solid rgba(39,125,176,.22);box-shadow:0 18px 55px -20px rgba(39,125,176,.35)}
+.text-shimmer{background:linear-gradient(110deg,#ffd97a 20%,#fff6e0 40%,#f0b429 60%,#ffd97a 80%);background-size:200% auto;-webkit-background-clip:text;background-clip:text}
+.text-shimmer,.theme-light .text-shimmer{color:transparent;animation:shimmer 4s linear infinite}
+.theme-light .text-shimmer{background:linear-gradient(110deg,#c99117 20%,#f0b429 40%,#a87908 60%,#c99117 80%);background-size:200% auto;-webkit-background-clip:text;background-clip:text}
+.aurora{position:absolute;inset:-20%;pointer-events:none;background:radial-gradient(38% 45% at 18% 22%,rgba(56,149,204,.35) 0,transparent 70%),radial-gradient(42% 48% at 82% 12%,rgba(39,125,176,.28) 0,transparent 70%),radial-gradient(30% 38% at 68% 78%,rgba(240,180,41,.1) 0,transparent 70%),radial-gradient(45% 55% at 30% 88%,rgba(95,180,228,.16) 0,transparent 72%);filter:blur(10px)}
+.theme-light .aurora{background:radial-gradient(38% 45% at 18% 22%,rgba(95,180,228,.28) 0,transparent 70%),radial-gradient(42% 48% at 82% 12%,rgba(56,149,204,.2) 0,transparent 70%),radial-gradient(30% 38% at 68% 78%,rgba(240,180,41,.16) 0,transparent 70%),radial-gradient(45% 55% at 30% 88%,hsla(0,0%,100%,.6) 0,transparent 72%);filter:blur(12px)}
+.theme-light .cloud{position:absolute;border-radius:9999px;background:hsla(0,0%,100%,.85);filter:blur(2px);box-shadow:0 18px 40px -12px rgba(39,125,176,.18)}
+.ring-cta{box-shadow:0 0 0 1px rgba(255,217,122,.35),0 10px 40px -12px rgba(240,180,41,.55)}
+.card-hover{transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s,border-color .35s}
+.card-hover:hover{transform:translateY(-6px);border-color:rgba(255,217,122,.45);box-shadow:0 24px 60px -24px rgba(56,149,204,.55)}
+@keyframes begreat-fly{0%{opacity:1;transform:translate(-50%,-50%) rotate(var(--angle)) translateX(0) scale(.4)}to{opacity:0;transform:translate(-50%,-50%) rotate(var(--angle)) translateX(var(--dist)) scale(1.15)}}
+.kid-card{transition:transform .4s cubic-bezier(.34,1.56,.64,1),box-shadow .4s,border-color .4s}
+.kid-card:hover{transform:translateY(-10px) rotate(-1.2deg) scale(1.02);border-color:rgba(255,217,122,.55);box-shadow:0 30px 70px -22px rgba(56,149,204,.65)}
+.kid-card:nth-child(2n):hover{transform:translateY(-10px) rotate(1.2deg) scale(1.02)}
+.kid-card .kid-img{transition:transform .5s cubic-bezier(.34,1.56,.64,1)}
+.kid-card:hover .kid-img{transform:scale(1.07)}
+@media (prefers-reduced-motion:reduce){*,:after,:before{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}html{scroll-behavior:auto}}
+@keyframes shimmer{to{background-position:200% center}}

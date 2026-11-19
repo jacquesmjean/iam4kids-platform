@@ -116,6 +116,42 @@ export async function updateSchoolInquiry(form: FormData) {
   back(locale, "/schools", { ok: "Inquiry updated." }, `#s-${id}`);
 }
 
+export async function updateInquiry(form: FormData) {
+  const locale = loc(form);
+  const staff = await requireStaff(locale);
+  const id = str(form, "id");
+  const status = str(form, "status");
+  if (!INQUIRY_STATUSES.includes(status)) back(locale, "/inquiries", { error: "Pick a status from the list." });
+
+  const { error } = await staff.db
+    .from("inquiry")
+    .update({ status, staff_note: opt(form, "staff_note") })
+    .eq("id", id);
+  if (error) back(locale, "/inquiries", { error: explain(error.message) });
+
+  await staff.db
+    .from("staff_notification")
+    .update({ read_at: new Date().toISOString(), read_by: staff.personId })
+    .eq("subject_table", "inquiry")
+    .eq("subject_id", id)
+    .is("read_at", null);
+
+  back(locale, "/inquiries", { ok: "Inquiry updated." }, `#i-${id}`);
+}
+
+export async function markChatRead(form: FormData) {
+  const locale = loc(form);
+  const staff = await requireStaff(locale);
+  const id = str(form, "id");
+  await staff.db
+    .from("staff_notification")
+    .update({ read_at: new Date().toISOString(), read_by: staff.personId })
+    .eq("subject_table", "concierge_message")
+    .eq("subject_id", id)
+    .is("read_at", null);
+  back(locale, "/chats", { ok: "Marked as read." }, `#c-${id}`);
+}
+
 // ---------------------------------------------------------------- page wording
 
 /**

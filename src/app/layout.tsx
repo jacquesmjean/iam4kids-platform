@@ -2,11 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "I AM 4 Kids Platform",
-  description:
-    "The shared foundation behind I AM 4 Kids: one record for every family, " +
-    "events that run themselves, and a child who is counted and celebrated, never contacted.",
-  robots: { index: false, follow: false },
+  title: { default: "I AM 4 Kids", template: "%s | I AM 4 Kids" },
+  description: "Helping kids discover the power of who they are.",
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -3,6 +3,7 @@ import { requireStaff } from "@/lib/auth";
 import { formatShort } from "@/lib/time";
 import { SubmitButton } from "@/components/SubmitButton";
 import { updateSchoolInquiry } from "../actions";
+import { InquiryTabs } from "../inquiries/Tabs";
 import { Empty, Flash, Locale, Pill, ScreenHeader, field, first, label, type SearchParams } from "../ui";
 
 export const dynamic = "force-dynamic";
@@ -64,7 +65,7 @@ export default async function SchoolInquiries({
   return (
     <>
       <ScreenHeader
-        title="School inquiries"
+        title="Inquiries"
         lede={
           <>
             Every school that asks about bringing I AM 4 Kids in, from the{" "}
@@ -76,6 +77,7 @@ export default async function SchoolInquiries({
           </>
         }
       />
+      <InquiryTabs locale={locale} current="schools" />
       <Flash ok={first(sp.ok)} error={first(sp.error)} />
 
       <div className="mt-8 space-y-5">

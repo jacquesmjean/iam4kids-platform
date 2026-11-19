@@ -3,8 +3,9 @@ import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { ConsoleNav } from "@/components/ConsoleNav";
 import { requireStaff } from "@/lib/auth";
-import { signOut } from "../login/actions";
+import { signOut } from "../(site)/login/actions";
 
+export const metadata: import("next").Metadata = { title: "Staff console", robots: { index: false, follow: false } };
 export const dynamic = "force-dynamic";
 
 /**
@@ -29,10 +30,12 @@ export default async function ConsoleLayout({
   }
 
   const head = { count: "exact" as const, head: true };
-  const [n, f, s, d, c] = await Promise.all([
+  const [n, f, s, i, ch, d, c] = await Promise.all([
     staff.db.from("staff_notification").select("id", head).is("read_at", null),
     staff.db.from("client_feedback").select("id", head).is("read_at", null),
     staff.db.from("school_inquiry").select("id", head).eq("status", "new"),
+    staff.db.from("inquiry").select("id", head).eq("status", "new"),
+    staff.db.from("staff_notification").select("id", head).eq("kind", "concierge").is("read_at", null),
     staff.db.from("decision_request").select("id", head).eq("status", "open"),
     staff.db.from("content_derivative").select("id", head).eq("status", "in_review"),
   ]);
@@ -51,8 +54,8 @@ export default async function ConsoleLayout({
               </span>
             </Link>
             <div className="ml-auto flex items-center gap-4 text-sm text-white/70">
-              <Link href={`/${locale}/schools`} className="hover:text-white">
-                View Schools page
+              <Link href={`/${locale}`} className="hover:text-white">
+                View website
               </Link>
               <span className="hidden sm:inline">Signed in as {firstName}</span>
               <Link href={`/${locale}/admin/password`} className="hover:text-white">
@@ -72,7 +75,7 @@ export default async function ConsoleLayout({
               counts={{
                 notifications: n.count ?? 0,
                 feedback: f.count ?? 0,
-                schools: s.count ?? 0,
+                inquiries: (s.count ?? 0) + (i.count ?? 0) + (ch.count ?? 0),
                 decisions: d.count ?? 0,
                 content: c.count ?? 0,
               }}
@@ -83,7 +86,7 @@ export default async function ConsoleLayout({
       <main className="mx-auto max-w-6xl px-6 py-10">{children}</main>
       <footer className="mx-auto max-w-6xl px-6 pb-10 text-xs text-[#12224a]/50">
         Every change here is saved against your name.{" "}
-        <a href="https://techfides.com" target="_blank" rel="noopener" className="font-semibold text-[#0EA5E9]">
+        <a href="https://techfides.com" target="_blank" rel="noopener" className="font-semibold text-techfides">
           Powered by TechFides
         </a>
       </footer>
