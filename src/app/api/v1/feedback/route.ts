@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { publicDb } from "@/lib/public-db";
+import { alertStaff } from "@/lib/alert";
 
 export const dynamic = "force-dynamic";
 
@@ -91,6 +92,18 @@ export async function POST(request: Request) {
       { status: 500 }
     );
   }
+
+  // The database trigger has already raised a console notification. Email is
+  // the second channel, sent only if the deployment has a Resend key. Mark's
+  // October feedback sat unread for five weeks because neither existed.
+  await alertStaff(
+    `New feedback from ${i.authorName.trim()}`,
+    [
+      nz(i.anythingElse) ?? nz(i.hopes) ?? nz(i.visionServes) ?? "Open the console to read it.",
+    ],
+    "/admin/feedback",
+    new URL(request.url).origin
+  );
 
   return NextResponse.json({ ok: true, saved: true });
 }

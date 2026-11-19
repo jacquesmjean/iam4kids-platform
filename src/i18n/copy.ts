@@ -23,8 +23,9 @@ const en = {
     foundation: "Foundation",
     impact: "Impact",
     content: "Content",
-    admin: "Admin",
+    admin: "Staff console",
     register: "Register",
+    schools: "Schools",
     feedback: "Your review",
     switch: "Español",
   },
@@ -33,7 +34,7 @@ const en = {
     eyebrow: "I AM 4 Kids · Platform Foundation",
     title: "One foundation. Every experience in the vision sits on top of it.",
     lede:
-      "The blueprint describes a kids’ empowerment universe: a show, characters, toys, games, books, apparel. Those are six products. They are also six chances to build six disconnected databases. This is the thing that stops that happening — one record for every family, one place events and content are managed from, and a child who is counted and celebrated but never contacted.",
+      "The blueprint describes a kids’ empowerment universe: a show, characters, toys, games, books, apparel. Those are six products. They are also six chances to build six disconnected databases. This is what stops that happening: one record for every family, one place events and content are managed from, and a child who is counted and celebrated but never contacted.",
     ctaRegister: "See a family register",
     ctaVision: "The vision this serves",
     ctaImpact: "See the impact dashboard",
@@ -41,7 +42,7 @@ const en = {
     decisionEyebrow: "The decision everything else depends on",
     decisionTitle: "A child is a record, not a user.",
     decisionBody:
-      "COPPA attaches the moment a child can log in or be reached directly. Rather than build a consent apparatus around child accounts, we removed the trigger. A child profile has no email address, no login, no phone number. There is no column to put one in. Every experience in the blueprint still works — the parent is the one we talk to.",
+      "COPPA attaches the moment a child can log in or be reached directly. Rather than build a consent apparatus around child accounts, we removed the trigger. A child profile has no email address, no login, no phone number. There is no column to put one in. Every experience in the blueprint still works. The parent is the one we talk to.",
     decisionFooter: "Enforced by the schema, not by a rule someone has to remember.",
 
     stackTitle: "How it stacks",
@@ -63,17 +64,17 @@ const en = {
     ownershipEyebrow: "Ownership",
     ownershipTitle: "Every account is created in I AM 4 Kids’ name.",
     ownershipBody:
-      "The repository, the hosting, the database, the email sender, the social accounts — all owned by I AM 4 Kids, with TechFides added as an administrator who can be removed on a Tuesday afternoon without anything breaking. Never the reverse. That is a condition of the work, not a favour.",
+      "The repository, the hosting, the database, the email sender, the social accounts. All owned by I AM 4 Kids, with TechFides added as an administrator who can be removed on a Tuesday afternoon without anything breaking. Never the reverse. That is a condition of the work, not a favour.",
 
     footer:
-      "Built by TechFides for I AM 4 Kids. Foundation — architecture, schema and access model. Not a public site.",
+      "Built by TechFides for I AM 4 Kids. Foundation: architecture, schema and access model. Not a public site.",
   },
 
   impact: {
     eyebrow: "I AM 4 Kids · Impact",
     title: "What the platform can prove.",
     lede:
-      "Every number here is a live count from the database. Nothing is typed in, nothing is estimated, and nothing can be quietly adjusted. Today they read zero, because today is day one — which is exactly why they will mean something in ninety days.",
+      "Every number here is a live count from the database. Nothing is typed in, nothing is estimated, and nothing can be quietly adjusted. Today they read zero, because today is day one. That is exactly why they will mean something in ninety days.",
     families: "Families",
     children: "Children reached",
     guardians: "Guardians",
@@ -98,36 +99,42 @@ const en = {
       "The database is not connected to this deployment yet, so these read as unavailable rather than as zero. A dashboard that invents a number is worse than one that admits it cannot see.",
     whyZero: "Why every number is zero",
     whyZeroBody:
-      "Because nothing has been faked. The previous system was seeded with invented schools, invented contracts and a $45,000 pilot that never existed. All of it has been removed. What replaces it counts only what actually happens — so the first family who registers moves a number that has never moved before.",
+      "Because these numbers only count what actually happens on this platform, and it is new. An earlier TechFides demo system was filled with sample schools, sample contracts and a sample $45,000 pilot to show the layout. None of that came from I AM 4 Kids, and none of your real history was ever stored here or removed. Your real accomplishments belong in Atlas, recorded with their evidence, so they can be shown accurately.",
   },
 
   content: {
     eyebrow: "I AM 4 Kids · Content OS",
-    title: "One recording becomes ten pieces. Nothing publishes without a human.",
+    title: "One recording becomes a post for each of your channels. Nothing publishes without you.",
     lede:
-      "Paste a transcript, a talk, a voice note — anything you have already said. The platform drafts it for every channel. Then it stops, and waits for a name.",
+      "Paste a transcript, a talk, a voice note, anything you have already said. The platform drafts it for every channel. Then it stops, and waits for a name.",
     inputLabel: "Source material",
     placeholder:
       "Paste a session transcript or a few paragraphs of something you have already said…",
     sample: "Use a sample",
+    sampleNote: "The sample is your own wording from the iam4kids.com home page.",
+    channelsNote:
+      "You chose Facebook and LinkedIn, so those are the only channels drafted. Instagram, X, TikTok, YouTube and email stay switched off until you decide to add them.",
+    guardrailsTitle: "What every draft is held to",
+    guardrailsSource:
+      "Your guardrails, in your words, from your feedback on October 15. You can change them in Atlas in the staff console.",
     generate: "Draft for every channel",
     clear: "Clear",
     empty: "Paste something above and the drafts appear here.",
     tooShort: "Give it a couple of sentences to work with.",
     gateTitle: "The approval gate",
     gateBody:
-      "Every draft below is held. Approve one and it moves to the publishing queue; reject it and it goes back. The decision is recorded against your name and the wording you saw — not inferred later from a status field. This gate is not a formality. For a children’s charity it is the product.",
+      "Every draft below is held. Approve one and it moves to the publishing queue; reject it and it goes back. The decision is recorded against your name and the wording you saw, not inferred later from a status field. This gate is not a formality. For a children’s charity it is the product.",
     approve: "Approve",
     reject: "Reject",
-    approved: "Approved — queued to publish",
-    rejected: "Rejected — returned to drafting",
+    approved: "Approved, queued to publish",
+    rejected: "Rejected, returned to drafting",
     pending: "Awaiting approval",
     apiMode: "Publishes by API",
     handoffMode: "Manual handoff",
     handoffWhy:
       "This platform restricts automated posting. The queue hands you the finished piece instead of pretending it published.",
     honest:
-      "Drafting here runs on rules, not a language model — enough to show the shape and the gate. The model plugs into this same pipeline in Week 3, and the gate does not move.",
+      "Drafting here runs on rules, not a language model. Enough to show the shape and the gate. The model plugs into this same pipeline in Week 3, and the gate does not move.",
     charCount: "characters",
   },
 
@@ -153,12 +160,12 @@ const en = {
     status: "Status",
     locked: "Staff data is locked",
     lockedBody:
-      "This screen reads guardian names, children and registrations, so it needs the database credentials that the public pages deliberately do not use. Add the service role key to this deployment and the screen fills in. Until then it shows you the shape and none of the people — which is the correct failure.",
+      "This screen reads guardian names, children and registrations, so it needs the database credentials that the public pages deliberately do not use. Add the service role key to this deployment and the screen fills in. Until then it shows you the shape and none of the people, which is the correct failure.",
   },
 
   register: {
     title: "Save your family’s place",
-    subtitle: "Be Great! Family Reset — the parent registers, the whole family attends.",
+    subtitle: "Be Great! Family Reset. The parent registers, the whole family attends.",
     guardianName: "Parent or guardian name",
     email: "Email",
     childFirstName: "Child’s first name",
@@ -169,17 +176,18 @@ const en = {
     error: "Please complete every field and confirm guardian consent.",
     confirmTitle: "You’re in.",
     confirmBody:
-      "A confirmation is on its way with your link and a calendar file. We’ll remind you 24 hours and 1 hour before — in your time zone.",
-    wrote: "What that one submission wrote",
-    wouldWrite: "What that one submission would write",
-    sixRecords:
-      "Six records. Zero child accounts. The child is in the database because we count and celebrate them — and there is no column anywhere that could be used to contact them.",
+      "Your family’s place is saved for {when}. The I AM 4 Kids team will email the joining link to {email} before the session.",
+    waitlistTitle: "You’re on the waiting list.",
+    waitlistBody:
+      "This session is full, so we have added your family to the waiting list for {when}. If a place opens, we will tell you at {email}.",
+    nextSession: "Next session",
+    noDateTitle: "No date is open right now.",
+    noDateBody:
+      "The next Be Great! Family Reset has not been scheduled yet. Please check back soon.",
+    noDateError: "This session is no longer open. Please reload the page for the next date.",
     previewNote:
-      "Preview mode — database credentials are not set on this deployment, so nothing was saved.",
-    back: "Back to the foundation",
-    provisional: "Provisional date",
-    provisionalBody:
-      "This session is scheduled for demonstration so the flow can be shown end to end. The real date and format are still yours to set.",
+      "Preview mode: database credentials are not set on this deployment, so nothing was saved.",
+    back: "Back to the platform",
     sending: "One moment…",
   },
 
@@ -187,7 +195,7 @@ const en = {
     eyebrow: "I AM 4 Kids · Your review",
     title: "Tell us where this is right, and where it is not.",
     lede:
-      "Six short sections. Answer what you have a view on and skip the rest — a half-filled form beats a meeting nobody wrote down. Everything you write here is recorded against the work, not lost in a thread.",
+      "Six short sections. Answer what you have a view on and skip the rest. A half-filled form beats a meeting nobody wrote down. Everything you write here is recorded against the work, not lost in a thread.",
     time: "About five minutes. Nothing is required except your name.",
 
     s1: "1. You",
@@ -228,11 +236,11 @@ const en = {
       "School year, a launch event, a funder deadline, a season. Whatever is really behind it.",
     priority: "If only one thing could be finished first, which?",
     priorityChoose: "Choose one",
-    pEvents: "Events — registration, reminders, attendance",
-    pContent: "Content — one recording into many pieces",
-    pSchools: "Schools — rosters and school programmes",
-    pImpact: "Impact reporting — what we can prove to funders",
-    pPublicSite: "The public site — what families see first",
+    pEvents: "Events: registration, reminders, attendance",
+    pContent: "Content: one recording into many pieces",
+    pSchools: "Schools: rosters and school programs",
+    pImpact: "Impact reporting: what we can prove to funders",
+    pPublicSite: "The public site: what families see first",
     pNotSure: "Not sure yet",
 
     s6: "6. Rules and approvals",
@@ -257,12 +265,12 @@ const en = {
       "Your answers are saved against the project, with today’s date. Nothing here disappears into an inbox. We will work from it and come back to you on each point.",
     thanksNext: "Back to the platform",
     savedLocal:
-      "Saved locally — the database was not reachable, so a copy is on screen below. Please send it to Jacques so nothing is lost.",
+      "Saved locally. The database was not reachable, so a copy is on screen below. Please send it to Jacques so nothing is lost.",
   },
 };
 
 /**
- * The shape English defines. No `as const` on `en` — literal types would make
+ * The shape English defines. No `as const` on `en`: literal types would make
  * every Spanish string a type error rather than a translation. Structure is
  * still enforced: a key present in English and missing in Spanish fails the
  * build, which is the whole point of keeping both in one file.
@@ -274,8 +282,9 @@ const es: Copy = {
     foundation: "Fundamento",
     impact: "Impacto",
     content: "Contenido",
-    admin: "Equipo",
+    admin: "Consola del equipo",
     register: "Inscribirse",
+    schools: "Escuelas",
     feedback: "Su valoración",
     switch: "English",
   },
@@ -350,18 +359,24 @@ const es: Copy = {
       "La base de datos todavía no está conectada a este despliegue, así que estos valores aparecen como no disponibles en lugar de como cero. Un panel que inventa un número es peor que uno que admite que no puede verlo.",
     whyZero: "Por qué todo está en cero",
     whyZeroBody:
-      "Porque no se ha falseado nada. El sistema anterior estaba sembrado de escuelas inventadas, contratos inventados y un programa piloto de 45.000 dólares que nunca existió. Todo eso se eliminó. Lo que lo reemplaza sólo cuenta lo que de verdad ocurre, así que la primera familia que se inscriba moverá un número que nunca antes se había movido.",
+      "Porque estas cifras solo cuentan lo que de verdad ocurre en esta plataforma, y es nueva. Un sistema de demostración anterior de TechFides se llenó con escuelas, contratos y un piloto de 45.000 dólares de ejemplo, solo para mostrar el diseño. Nada de eso venía de I AM 4 Kids, y ninguna parte de su historia real se guardó aquí ni se eliminó. Sus logros reales pertenecen a Atlas, registrados con su evidencia, para poder mostrarlos con precisión.",
   },
 
   content: {
     eyebrow: "I AM 4 Kids · Sistema de contenido",
-    title: "Una grabación se convierte en diez piezas. Nada se publica sin una persona.",
+    title: "Una grabación se convierte en una publicación para cada uno de sus canales. Nada se publica sin usted.",
     lede:
       "Pegue una transcripción, una charla, una nota de voz: cualquier cosa que ya haya dicho. La plataforma redacta la versión de cada canal. Después se detiene y espera un nombre.",
     inputLabel: "Material de origen",
     placeholder:
       "Pegue aquí la transcripción de una sesión o unos párrafos de algo que ya haya dicho…",
     sample: "Usar un ejemplo",
+    sampleNote: "El ejemplo es su propio texto de la página de inicio de iam4kids.com.",
+    channelsNote:
+      "Usted eligió Facebook y LinkedIn, así que solo se redactan esos canales. Instagram, X, TikTok, YouTube y el correo siguen desactivados hasta que decida añadirlos.",
+    guardrailsTitle: "Las reglas que cumple cada borrador",
+    guardrailsSource:
+      "Sus reglas, con sus palabras, de su valoración del 15 de octubre. Puede cambiarlas en Atlas, en la consola del equipo.",
     generate: "Redactar para cada canal",
     clear: "Limpiar",
     empty: "Pegue algo arriba y los borradores aparecerán aquí.",
@@ -371,8 +386,8 @@ const es: Copy = {
       "Cada borrador de abajo está retenido. Si aprueba uno, pasa a la cola de publicación; si lo rechaza, vuelve a redacción. La decisión queda registrada con su nombre y con el texto exacto que usted vio, no deducida después de un campo de estado. Esta puerta no es un trámite. Para una organización dedicada a la infancia, es el producto.",
     approve: "Aprobar",
     reject: "Rechazar",
-    approved: "Aprobado — en cola para publicar",
-    rejected: "Rechazado — devuelto a redacción",
+    approved: "Aprobado, en cola para publicar",
+    rejected: "Rechazado, devuelto a redacción",
     pending: "Esperando aprobación",
     apiMode: "Publica por API",
     handoffMode: "Entrega manual",
@@ -411,7 +426,7 @@ const es: Copy = {
   register: {
     title: "Reserve el lugar de su familia",
     subtitle:
-      "Be Great! Family Reset — se inscribe el padre o la madre, asiste toda la familia.",
+      "Be Great! Family Reset. Se inscribe el padre o la madre, asiste toda la familia.",
     guardianName: "Nombre del padre, madre o tutor",
     email: "Correo electrónico",
     childFirstName: "Nombre del niño o la niña",
@@ -422,17 +437,18 @@ const es: Copy = {
     error: "Complete todos los campos y confirme el consentimiento del tutor.",
     confirmTitle: "Listo, ya están dentro.",
     confirmBody:
-      "Le llegará una confirmación con su enlace y un archivo de calendario. Le recordaremos 24 horas y 1 hora antes, en su propia zona horaria.",
-    wrote: "Lo que escribió ese único envío",
-    wouldWrite: "Lo que escribiría ese único envío",
-    sixRecords:
-      "Seis registros. Cero cuentas infantiles. El niño está en la base de datos porque lo contamos y lo celebramos, y no existe ninguna columna que pudiera usarse para contactarlo.",
+      "El lugar de su familia está reservado para el {when}. El equipo de I AM 4 Kids enviará el enlace para unirse a {email} antes de la sesión.",
+    waitlistTitle: "Están en la lista de espera.",
+    waitlistBody:
+      "Esta sesión está completa, así que hemos añadido a su familia a la lista de espera del {when}. Si se libera un lugar, se lo diremos en {email}.",
+    nextSession: "Próxima sesión",
+    noDateTitle: "No hay ninguna fecha abierta en este momento.",
+    noDateBody:
+      "Aún no se ha programado el próximo Be Great! Family Reset. Vuelva a consultar pronto.",
+    noDateError: "Esta sesión ya no está abierta. Vuelva a cargar la página para ver la próxima fecha.",
     previewNote:
       "Modo de vista previa: las credenciales de la base de datos no están configuradas en este despliegue, así que no se guardó nada.",
-    back: "Volver al fundamento",
-    provisional: "Fecha provisional",
-    provisionalBody:
-      "Esta sesión está programada como demostración, para poder mostrar el flujo completo. La fecha y el formato reales siguen siendo decisión suya.",
+    back: "Volver a la plataforma",
     sending: "Un momento…",
   },
 

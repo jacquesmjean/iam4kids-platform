@@ -60,7 +60,7 @@ export const WEEKS: Record<Locale, { week: string; title: string; done: string[]
       week: "Week 1",
       title: "The spine goes in",
       done: [
-        "Repository, hosting and database — all created in I AM 4 Kids’ name",
+        "Repository, hosting and database, all created in I AM 4 Kids’ name",
         "Eighteen tables migrated: identity, consent, events, content",
         "Row-level security live, so a child record cannot leak through an API bug",
         "One public registration form writing real records",
@@ -91,7 +91,7 @@ export const WEEKS: Record<Locale, { week: string; title: string; done: string[]
       title: "You can see it, and you own it",
       done: [
         "Impact dashboard: families reached, sessions held, attendance, schools served",
-        "Admin console for staff — no engineer needed to run an event",
+        "Admin console for staff, no engineer needed to run an event",
         "Access handover: every credential in I AM 4 Kids’ name, TechFides removable",
         "Decision log current, architecture documented in the repository",
       ],

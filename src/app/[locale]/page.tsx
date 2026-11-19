@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Nav } from "@/components/Nav";
+import { SiteFooter } from "@/components/SiteFooter";
 import { t, isLocale, type Locale } from "@/i18n/copy";
 import { LAYERS, TABLES, WEEKS, DECISIONS } from "@/i18n/data";
 
@@ -173,6 +174,7 @@ export default async function FoundationConsole({
           {c.footer}
         </footer>
       </main>
+      <SiteFooter locale={locale} />
     </>
   );
 }

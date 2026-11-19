@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "I AM 4 Kids — Platform Foundation",
+  title: "I AM 4 Kids Platform",
   description:
     "The shared foundation behind I AM 4 Kids: one record for every family, " +
-    "events that run themselves, and a child who is counted and celebrated — never contacted.",
+    "events that run themselves, and a child who is counted and celebrated, never contacted.",
   robots: { index: false, follow: false },
 };
 

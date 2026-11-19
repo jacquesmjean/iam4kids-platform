@@ -1,4 +1,5 @@
 import { Nav } from "@/components/Nav";
+import { SiteFooter } from "@/components/SiteFooter";
 import { t, isLocale, type Locale } from "@/i18n/copy";
 import { getImpactCounts } from "@/lib/public-db";
 
@@ -126,6 +127,7 @@ export default async function ImpactPage({
           <p className="mt-4 max-w-2xl leading-relaxed text-white/75">{c.whyZeroBody}</p>
         </section>
       </main>
+      <SiteFooter locale={locale} />
     </>
   );
 }

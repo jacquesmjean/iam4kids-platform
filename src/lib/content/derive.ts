@@ -75,6 +75,13 @@ function meat(ss: string[], n: number): string[] {
     .map((x) => x.s);
 }
 
+/**
+ * The channels Mark chose (feedback form, 15 October 2026: "Facebook and
+ * LinkedIn."). Everything else is still drafted by the code below but never
+ * shown, so switching a channel on later is one line, not a rebuild.
+ */
+export const ENABLED_CHANNELS: Channel[] = ["facebook", "linkedin"];
+
 export function derive(source: string): Draft[] {
   const ss = sentences(source);
   if (ss.length === 0) return [];
@@ -88,7 +95,7 @@ export function derive(source: string): Draft[] {
     {
       id: "linkedin-long",
       channel: "linkedin",
-      label: "LinkedIn — full post",
+      label: "LinkedIn: full post",
       mode: MODE.linkedin,
       limit: 1300,
       body: clamp(
@@ -99,7 +106,7 @@ export function derive(source: string): Draft[] {
     {
       id: "linkedin-short",
       channel: "linkedin",
-      label: "LinkedIn — short form",
+      label: "LinkedIn: short form",
       mode: MODE.linkedin,
       limit: 400,
       body: clamp(`${h}\n\n${rest[0] ?? ""}\n\nBe Great!`, 400),
@@ -107,7 +114,7 @@ export function derive(source: string): Draft[] {
     {
       id: "facebook",
       channel: "facebook",
-      label: "Facebook — community post",
+      label: "Facebook: community post",
       mode: MODE.facebook,
       limit: 600,
       body: clamp(`${h}\n\n${body3.filter((s) => s !== h).join(" ")}`, 600),
@@ -115,7 +122,7 @@ export function derive(source: string): Draft[] {
     {
       id: "instagram",
       channel: "instagram",
-      label: "Instagram — caption",
+      label: "Instagram: caption",
       mode: MODE.instagram,
       limit: 2200,
       body: clamp(
@@ -126,7 +133,7 @@ export function derive(source: string): Draft[] {
     {
       id: "instagram-carousel",
       channel: "instagram",
-      label: "Instagram — carousel slides",
+      label: "Instagram: carousel slides",
       mode: MODE.instagram,
       body: body5
         .slice(0, 5)
@@ -136,7 +143,7 @@ export function derive(source: string): Draft[] {
     {
       id: "x-thread",
       channel: "x",
-      label: "X — thread",
+      label: "X: thread",
       mode: MODE.x,
       limit: 280,
       body: [h, ...rest.slice(0, 4)]
@@ -146,7 +153,7 @@ export function derive(source: string): Draft[] {
     {
       id: "tiktok",
       channel: "tiktok",
-      label: "TikTok — 30-second script",
+      label: "TikTok: 30-second script",
       mode: MODE.tiktok,
       body: [
         `HOOK (0–3s)\n${clamp(h, 120)}`,
@@ -158,7 +165,7 @@ export function derive(source: string): Draft[] {
     {
       id: "youtube",
       channel: "youtube",
-      label: "YouTube — title & description",
+      label: "YouTube: title & description",
       mode: MODE.youtube,
       body: [
         `TITLE\n${clamp(h, 95)}`,
@@ -169,7 +176,7 @@ export function derive(source: string): Draft[] {
     {
       id: "email",
       channel: "email",
-      label: "Email — subject & body",
+      label: "Email: subject & body",
       mode: MODE.email,
       body: [
         `SUBJECT\n${clamp(h, 70)}`,
@@ -180,21 +187,25 @@ export function derive(source: string): Draft[] {
     {
       id: "substack",
       channel: "substack",
-      label: "Newsletter — opening",
+      label: "Newsletter: opening",
       mode: MODE.substack,
       body: `${h}\n\n${body5.filter((s) => s !== h).join("\n\n")}`,
     },
   ];
 
-  return drafts;
+  return drafts.filter((d) => ENABLED_CHANNELS.includes(d.channel));
 }
 
-export const SAMPLE = `A mother told me last week that her nine-year-old had stopped raising her hand in class. Not because she did not know the answer. Because she had decided, somewhere between second grade and fourth, that being wrong in front of people was the worst thing that could happen to her.
+/**
+ * The sample is Mark's own published wording from the iam4kids.com home page
+ * (captured 18 November 2026), not something written for him. The earlier
+ * sample was an invented anecdote in his voice, which is exactly what his
+ * first guardrail rules out.
+ */
+export const SAMPLE = `Children are forming beliefs about who they are every day. Those beliefs become their identity. And identity drives everything.
 
-That is not a confidence problem. That is a story problem. Somewhere along the way she picked up a story about who she is, and now she is living inside it.
+At I AM 4 Kids we teach a simple but life-changing truth: identity shapes destiny. When kids begin to believe "I am confident," "I am capable," "I am a leader," "I am resilient," they start living that identity.
 
-Here is what we have learned running these sessions. You cannot argue a child out of a story. You can only give them a bigger one. When a kid hears an adult say out loud, in front of the whole room, that being wrong is how the answer gets found, something moves. Not always that day. But it moves.
+Confidence, resilience, leadership, creativity. These qualities don't come from grades or trophies. They come from identity.
 
-This is why we do the Family Reset with the parent in the room. The child needs to hear it. The parent needs to hear the child hear it. And then, on a Tuesday night three weeks later, when the homework goes badly, the parent has something to say that is not just calm down.
-
-Every kid carries something they have not been told about yet. Our whole job is to say it out loud, early enough to matter.`;
+The I AM 4 Kids mission is simple: help kids believe in themselves before the world tells them not to.`;

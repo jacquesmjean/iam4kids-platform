@@ -36,8 +36,28 @@ src/i18n/     Translations. en + es from the first commit
 | 0  | Foundation — identity, contacts, consent, roles, RLS | Schema landed |
 | 1B | Event OS — the Be Great! Family Reset, end to end | Registration slice landed |
 | 1A | Content OS — source asset to approved multi-channel | Schema landed |
-| 1C | Public presence — audience pathways | Next |
+| 1C | Public presence — audience pathways | Schools page live, editable |
+| 1D | Staff console — sign-in, feedback, page editor, events, Atlas, decisions | Landed |
 | 2  | Relationship & personalisation | Later |
+
+## The staff console
+
+`/en/admin`. Staff sign in with Supabase Auth; every query runs as that
+person, so row-level security decides what they can see and change. The
+console never uses the service role key. Screens:
+
+- **Overview**: notifications (every feedback, school inquiry and answered decision), next session, latest registrations, failures.
+- **Feedback**: every client review, word for word, with read state. Immutable.
+- **School inquiries**: the Schools page form, with status and a team note.
+- **Page editor**: page wording in English and Spanish, with history and restore.
+- **Events**: create events, add dates in Eastern/Central/Mountain/Pacific, seats, Zoom link, status.
+- **Atlas**: guardrails, claims, history, programs, messages, voice, terms, characters. Only approved entries are used.
+- **Decisions**: what the team needs from Mark, answered in place.
+
+Adding a staff member: create their Supabase Auth user, then a `person` row
+linked by `auth_user_id` and a `role_assignment` with role `staff`. Set
+`must_change_password: true` in their user metadata to force a new password
+at first sign-in.
 
 ## Running locally
 

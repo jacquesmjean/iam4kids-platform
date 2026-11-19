@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { use, useRef, useState } from "react";
 import { Nav } from "@/components/Nav";
+import { SiteFooter } from "@/components/SiteFooter";
 import { t, isLocale, type Locale } from "@/i18n/copy";
 
 /** A section of the form. Space between questions is what gets them answered. */
@@ -95,10 +96,10 @@ export default function FeedbackPage({ params }: { params: Promise<{ locale: str
       [c.role, String(f.get("authorRole") ?? "")],
       [c.visionServes, String(f.get("visionServes") ?? "")],
       [c.visionMissing, String(f.get("visionMissing") ?? "")],
-      [`${c.s3} — ${c.websiteLikes}`, String(f.get("websiteLikes") ?? "")],
-      [`${c.s3} — ${c.websiteChanges}`, String(f.get("websiteChanges") ?? "")],
-      [`${c.s4} — ${c.platformLikes}`, String(f.get("platformLikes") ?? "")],
-      [`${c.s4} — ${c.platformChanges}`, String(f.get("platformChanges") ?? "")],
+      [`${c.s3}: ${c.websiteLikes}`, String(f.get("websiteLikes") ?? "")],
+      [`${c.s3}: ${c.websiteChanges}`, String(f.get("websiteChanges") ?? "")],
+      [`${c.s4}: ${c.platformLikes}`, String(f.get("platformLikes") ?? "")],
+      [`${c.s4}: ${c.platformChanges}`, String(f.get("platformChanges") ?? "")],
       [c.hopes, String(f.get("hopes") ?? "")],
       [c.goLiveDate, String(f.get("goLiveDate") ?? "")],
       [c.goLiveDriver, String(f.get("goLiveDriver") ?? "")],
@@ -184,6 +185,7 @@ export default function FeedbackPage({ params }: { params: Promise<{ locale: str
             &larr; {c.thanksNext}
           </Link>
         </main>
+      <SiteFooter locale={locale} />
       </>
     );
   }
@@ -309,6 +311,7 @@ export default function FeedbackPage({ params }: { params: Promise<{ locale: str
           </button>
         </form>
       </main>
+      <SiteFooter locale={locale} />
     </>
   );
 }
