@@ -72,13 +72,13 @@ const TOPICS: Topic[] = [
   },
   {
     test: /reset|sunday|webinar|free|training|domingo|gratis|gratuito|seminario/,
-    en: "The Sunday Night Family Reset is a free 45-minute live experience for parents, educators, and anyone who wants to empower kids, every other Sunday at 7 PM Eastern. You can reserve a free seat from the home page.",
-    es: "El Sunday Night Family Reset es una experiencia gratuita de 45 minutos en vivo para padres, educadores y cualquiera que quiera empoderar a los niños, cada dos domingos a las 7 PM hora del Este. Puedes reservar tu lugar gratis desde la página de inicio.",
+    en: "The Family Reset live sessions are taking a short break while we prepare a new format. Leave your details on the Get Started page and we will let you know as soon as new dates open.",
+    es: "Las sesiones en vivo del Family Reset están en una breve pausa mientras preparamos un nuevo formato. Deja tus datos en la página Comenzar y te avisaremos en cuanto haya nuevas fechas.",
   },
   {
     test: /family pack|price|pricing|cost|how much|program|age|year[- ]old|kid|child|son|daughter|precio|cuesta|cuanto|programa|edad|anos|nino|hijo|hija/,
-    en: "For families there are three paths. The Family Pack is $495 for a 4-week experience that starts the first Monday of every month, with 10 families per cohort. The Roundtable is $99 a month and includes the Family Pack. The Academy is $4,995 a year. Programs are designed for kids ages 7 to 12, with parents in the journey. There is also a free Sunday Night Family Reset. Which one should I tell you more about?",
-    es: "Para familias hay tres caminos. El Family Pack cuesta $495 por una experiencia de 4 semanas que empieza el primer lunes de cada mes, con 10 familias por grupo. El Roundtable cuesta $99 al mes e incluye el Family Pack. La Academia cuesta $4,995 al año. Los programas están pensados para niños de 7 a 12 años, con los padres en el camino. También hay un Sunday Night Family Reset gratuito. ¿Sobre cuál te cuento más?",
+    en: "For families there are three paths. The Family Pack is $495 for a 4-week experience that starts the first Monday of every month, with 10 families per cohort. The Roundtable is $99 a month and includes the Family Pack. The Academy is $4,995 a year. Programs are designed for kids ages 7 to 12, with parents in the journey. Which one should I tell you more about?",
+    es: "Para familias hay tres caminos. El Family Pack cuesta $495 por una experiencia de 4 semanas que empieza el primer lunes de cada mes, con 10 familias por grupo. El Roundtable cuesta $99 al mes e incluye el Family Pack. La Academia cuesta $4,995 al año. Los programas están pensados para niños de 7 a 12 años, con los padres en el camino. ¿Sobre cuál te cuento más?",
   },
   {
     test: /mark|papadas|founder|who (started|runs|is behind)|fundador/,
@@ -102,8 +102,8 @@ const TOPICS: Topic[] = [
   },
   {
     test: /^(hi|hello|hey|good (morning|afternoon|evening)|hola|buenas|buenos dias)\b/,
-    en: "Hello! I can help with family programs, school options, pricing, or the free Sunday Family Reset. What would you like to know?",
-    es: "¡Hola! Te ayudo con programas familiares, opciones para escuelas, precios o el Family Reset gratuito del domingo. ¿Qué te gustaría saber?",
+    en: "Hello! I can help with family programs, school options, pricing, or the movement. What would you like to know?",
+    es: "¡Hola! Te ayudo con programas familiares, opciones para escuelas, precios o el movimiento. ¿Qué te gustaría saber?",
   },
 ];
 

@@ -184,9 +184,9 @@ const en = {
     waitlistBody:
       "This session is full, so we have added your family to the waiting list for {when}. If a place opens, we will tell you at {email}.",
     nextSession: "Next session",
-    noDateTitle: "No date is open right now.",
+    noDateTitle: "The Family Reset is taking a short break.",
     noDateBody:
-      "The next Be Great! Family Reset has not been scheduled yet. Please check back soon.",
+      "We are preparing a new format. Leave your details on the Get Started page and we will let you know as soon as new dates open.",
     noDateError: "This session is no longer open. Please reload the page for the next date.",
     previewNote:
       "Preview mode: database credentials are not set on this deployment, so nothing was saved.",
@@ -448,9 +448,9 @@ const es: Copy = {
     waitlistBody:
       "Esta sesión está completa, así que hemos añadido a su familia a la lista de espera del {when}. Si se libera un lugar, se lo diremos en {email}.",
     nextSession: "Próxima sesión",
-    noDateTitle: "No hay ninguna fecha abierta en este momento.",
+    noDateTitle: "El Family Reset está en una breve pausa.",
     noDateBody:
-      "Aún no se ha programado el próximo Be Great! Family Reset. Vuelva a consultar pronto.",
+      "Estamos preparando un nuevo formato. Deje sus datos en la página Comenzar y le avisaremos en cuanto haya nuevas fechas.",
     noDateError: "Esta sesión ya no está abierta. Vuelva a cargar la página para ver la próxima fecha.",
     previewNote:
       "Modo de vista previa: las credenciales de la base de datos no están configuradas en este despliegue, así que no se guardó nada.",
